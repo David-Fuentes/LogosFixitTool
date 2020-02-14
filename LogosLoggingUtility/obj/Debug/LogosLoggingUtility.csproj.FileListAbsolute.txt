@@ -1,0 +1,16 @@
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\bin\Debug\LogosLoggingUtility.exe.config
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\bin\Debug\LogosLoggingUtility.exe
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\bin\Debug\LogosLoggingUtility.pdb
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\LogosLoggingUtility.csprojAssemblyReference.cache
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\MainWindow.g.cs
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\App.g.cs
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\LogosLoggingUtility_Content.g.cs
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\LogosLoggingUtility_MarkupCompile.cache
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\LogosLoggingUtility_MarkupCompile.lref
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\MainWindow.baml
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\LogosLoggingUtility.g.resources
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\LogosLoggingUtility.Properties.Resources.resources
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\LogosLoggingUtility.csproj.GenerateResource.cache
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\LogosLoggingUtility.csproj.CoreCompileInputs.cache
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\LogosLoggingUtility.exe
+C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\LogosLoggingUtility.pdb

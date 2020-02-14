@@ -1,0 +1,17 @@
+﻿<Window x:Class="LogosLoggingUtility.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LogosLoggingUtility"
+        mc:Ignorable="d"
+        Title="Logos Logging Utility" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="bttn_Repair_Logos" Content="Repair Logos Installation" HorizontalAlignment="Left" Margin="50,199,0,0" VerticalAlignment="Top" Width="170" Click="Bttn_Repair_Logos_Click" Height="82"/>
+        <Button x:Name="bttn_Repair_Verbum" Content="Repair Verbum Installation" HorizontalAlignment="Left" Margin="50,299,0,0" VerticalAlignment="Top" Width="170" Click="Bttn_Repair_Verbum_Click" Height="82"/>
+        <Button x:Name="bttn_Logs" Content="Get Logs" HorizontalAlignment="Left" Margin="288,299,0,0" VerticalAlignment="Top" Width="170" Click="Bttn_Logs_Click" Height="82"/>
+        <Button x:Name="bttn_Enable_Logging" Content="Enable Logging" HorizontalAlignment="Left" Margin="288,199,0,0" VerticalAlignment="Top" Width="170" Height="37" Click="Bttn_Enable_Logging_Click"/>
+        <Button x:Name="bttn_Disalbe_Logging" Content="Disable Logging" HorizontalAlignment="Left" Margin="288,244,0,0" VerticalAlignment="Top" Width="170" Height="37" Click="Bttn_Disalbe_Logging_Click"/>
+
+    </Grid>
+</Window>
