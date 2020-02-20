@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LogosLoggingUtility.Controllers;
+using LogosLoggingUtility.Model.Cards;
+using LogosLoggingUtility.Model.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Configuration.Install;
 using System.Diagnostics;
@@ -29,131 +32,50 @@ namespace LogosLoggingUtility
         public MainWindow()
         {
             InitializeComponent();
-            var faithlifeFilePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Faithlife\Logs";
-            var logosFilePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Logos";
-            var verbumFilePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Verbum";
+            var result = FilePathHelper.LocateLogosFolders();
 
-            if (Directory.Exists(faithlifeFilePath))
-                m_FaithlifeFilePath = faithlifeFilePath;
-            else
-                bttn_Logs.IsEnabled = false;
-
-            if (Directory.Exists(logosFilePath + @"\Data"))
-            {
-                m_LogosFilePath = logosFilePath;
-                m_isLogos4Directory = false;
-            }
-            else if (Directory.Exists(logosFilePath + @"4\Data"))
-            {
-                m_LogosFilePath = logosFilePath + "4";
-                m_isLogos4Directory = true;
-            }
-            else
-            {
-                bttn_Repair_Logos.IsEnabled = false;
-            }
-
-            if (Directory.Exists(verbumFilePath + @"\Data"))
-                m_LogosFilePath = verbumFilePath;
-            else
-                bttn_Repair_Verbum.IsEnabled = false;
-
+            var cardByCardType = CardManager.GetCardByCardType();
+            this.Support.InitializeCardInfo(cardByCardType[Model.CardType.Support]);
+            this.RepairCard.InitializeCardInfo(cardByCardType[Model.CardType.Repair]);
+            this.LogCard.InitializeCardInfo(cardByCardType[Model.CardType.Logs]);
+            this.TechCard.InitializeCardInfo(cardByCardType[Model.CardType.Tech]);
+            this.RemoteCard.InitializeCardInfo(cardByCardType[Model.CardType.Remote]);
         }
 
-
-        private void Bttn_Logs_Click(object sender, RoutedEventArgs e)
-        {
-            ArchiveLogsToDesktop(m_FaithlifeFilePath);
-        }
-
-        private void Bttn_Repair_Logos_Click(object sender, RoutedEventArgs e)
-        {
-            RepairInstallation();
-        }
+        //public static void Bttn_Logs_Click()
+        //{
+        //    ArchiveLogsToDesktop(m_FaithlifeFilePath);
+        //}
 
         
 
-        private void Bttn_Repair_Verbum_Click(object sender, RoutedEventArgs e)
+
+        
+
+        //private void BttnFindFilePath_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var result = SupportCard.SetLogosFilePath(sender, e);
+        //    if (result != "")
+        //    {
+        //        InstallFilePath.SubText = result;
+        //        InstallFilePath.ActionButtonVisibility = Visibility.Collapsed;
+        //    }
+        //}
+
+        private void BttnLogosFilePath_Click(object sender, RoutedEventArgs e)
         {
-            RepairInstallation();
+            SupportCard.OpenLogosFilePath(sender, e);
         }
 
-        private void RepairInstallation()
+        private void BttnLogsFilePath_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                var msiPath = m_LogosFilePath + @"\Install\Installers\" + (m_isLogos4Directory ? @"Logos4Prerequisites.msi" : @"Logos-x64.msi");
-                Process.Start(msiPath);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show($"Unable to open repair file: {e}");
-            }
-            
-
+            SupportCard.OpenLogsFilePath(sender, e);
         }
-
-        private void ArchiveLogsToDesktop(string folderPath)
-        {
-            try
-            {
-                var timeStamp = DateTime.Now.ToString("yyyy''MM''dd'-'HH''mm''ss");
-                var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\LogosLogs";
-                Directory.CreateDirectory(desktopPath);
-
-                var zipPath = desktopPath + $@"\Logs-{timeStamp}.zip";
-
-                ZipFile.CreateFromDirectory(folderPath, zipPath);
-
-                ProcessStartInfo startInfo = new ProcessStartInfo
-                {
-                    Arguments = desktopPath,
-                    FileName = "explorer.exe"
-                };
-                Process.Start(startInfo);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show($"ERROR: Logos must be fully closed before getting logs!");
-            }
-            
-        }
-
 
         private string m_FaithlifeFilePath;
         private string m_LogosFilePath;
         private bool m_isLogos4Directory;
 
-        private void Bttn_Enable_Logging_Click(object sender, RoutedEventArgs e)
-        {
-            var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            var jsPath = desktopPath + @"\LogosLogs\EnableLogging.js";
-            var webPath = "https://www.logos.com/media/tech/4xLogging/EnableLogging.js";
-
-            using (var client = new HttpClient())
-            {
-                var response = client.GetStringAsync(webPath).GetAwaiter().GetResult();
-                File.WriteAllText(jsPath, response);
-            }
-
-            var process = new Process();
-            Process.Start(jsPath);
-        }
-
-        private void Bttn_Disalbe_Logging_Click(object sender, RoutedEventArgs e)
-        {
-            var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            var jsPath = desktopPath + @"\LogosLogs\DisableLogging.js";
-            var webPath = "https://www.logos.com/media/tech/4xLogging/DisableLogging.js";
-
-            using (var client = new HttpClient())
-            {
-                var response = client.GetStringAsync(webPath).GetAwaiter().GetResult();
-                File.WriteAllText(jsPath, response);
-            }
-
-            var process = new Process();
-            Process.Start(jsPath);
-        }
+        
     }
 }

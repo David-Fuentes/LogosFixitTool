@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="LogosLoggingUtility.View.CardView.LogCardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LogosLoggingUtility.View.CardView"
+             mc:Ignorable="d" 
+             d:DesignHeight="170" d:DesignWidth="270">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <!--<ColumnDefinition Width="*"/>-->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" BorderBrush="Blue" Background="Blue" CornerRadius="8" Margin="5">
+            <Button x:Name="Bttn_EnableLogging" Click="Bttn_EnableLogging_Click" Content="Enable Logging" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="Transparent"/>
+        </Border>
+        
+        <Border Grid.Row="1" BorderBrush="Blue" Background="Blue" CornerRadius="8" Margin="5">
+            <Button x:Name="Bttn_DisableLogging" Click="Bttn_DisableLogging_Click" Content="Disable Logging" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="Transparent"/>
+        </Border>
+        
+        <Border Grid.Row="2" BorderBrush="Blue" Background="Blue" CornerRadius="8" Margin="10">
+            <Button x:Name="Bttn_ArchiveLogs" Click="Bttn_ArchiveLogs_Click" Content="Archive Logs" FontSize="16" Foreground="White" Background="Transparent" BorderBrush="Transparent"/>
+        </Border>
+    </Grid>
+</UserControl>

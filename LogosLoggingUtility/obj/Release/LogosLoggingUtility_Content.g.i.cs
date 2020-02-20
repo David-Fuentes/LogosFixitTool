@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/enablelogging.js")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/defaulticon.png")]
 
 

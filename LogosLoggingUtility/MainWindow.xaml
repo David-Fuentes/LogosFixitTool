@@ -4,14 +4,47 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LogosLoggingUtility"
+        xmlns:uc="clr-namespace:LogosLoggingUtility.Controllers"
+        xmlns:cv="clr-namespace:LogosLoggingUtility.View.CardView"
         mc:Ignorable="d"
-        Title="Logos Logging Utility" Height="450" Width="800">
+        Title="Logos Logging Utility" Height="650" Width="900">
     <Grid>
-        <Button x:Name="bttn_Repair_Logos" Content="Repair Logos Installation" HorizontalAlignment="Left" Margin="50,199,0,0" VerticalAlignment="Top" Width="170" Click="Bttn_Repair_Logos_Click" Height="82"/>
+        <!--<Button x:Name="bttn_Repair_Logos" Content="Repair Logos Installation" HorizontalAlignment="Left" Margin="50,199,0,0" VerticalAlignment="Top" Width="170" Click="Bttn_Repair_Logos_Click" Height="82"/>
         <Button x:Name="bttn_Repair_Verbum" Content="Repair Verbum Installation" HorizontalAlignment="Left" Margin="50,299,0,0" VerticalAlignment="Top" Width="170" Click="Bttn_Repair_Verbum_Click" Height="82"/>
         <Button x:Name="bttn_Logs" Content="Get Logs" HorizontalAlignment="Left" Margin="288,299,0,0" VerticalAlignment="Top" Width="170" Click="Bttn_Logs_Click" Height="82"/>
         <Button x:Name="bttn_Enable_Logging" Content="Enable Logging" HorizontalAlignment="Left" Margin="288,199,0,0" VerticalAlignment="Top" Width="170" Height="37" Click="Bttn_Enable_Logging_Click"/>
         <Button x:Name="bttn_Disalbe_Logging" Content="Disable Logging" HorizontalAlignment="Left" Margin="288,244,0,0" VerticalAlignment="Top" Width="170" Height="37" Click="Bttn_Disalbe_Logging_Click"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="87,66,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>-->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
+            <Border Background="Blue" Grid.RowSpan="3"/>
+            <Image Source="Images/LogosIconAlpha.png"/>
+
+            <uc:CardController x:Name="Support" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5"/>
+            <cv:SupportCardView Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="15,30,15,15"/>
+
+            <uc:CardController x:Name="LogCard" Grid.Row="1" Grid.Column="2" Margin="5"/>
+            <cv:LogCardView Grid.Row="1" Grid.Column="2" Margin="15,30,15,10"/>
+
+            <uc:CardController x:Name="RepairCard" Grid.Row="1" Grid.Column="1" Margin="5"/>
+            <cv:RepairCardView Grid.Row="1" Grid.Column="1" Margin="50,50,50,15"/>
+
+            <uc:CardController x:Name="TechCard" Grid.Row="2" Grid.Column="1" Margin="5"/>
+            
+            
+            <uc:CardController x:Name="RemoteCard" Grid.Row="2" Grid.Column="2" Margin="5"/>
+            <cv:RemoteCardView Grid.Row="3" Grid.Column="3" Margin="50,50,50,10"/>
+        </Grid>
     </Grid>
+
 </Window>

@@ -25,6 +25,8 @@ C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\R
 C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Release\LogosLoggingUtility.g.resources
 C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Release\LogosLoggingUtility.Properties.Resources.resources
 C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Release\LogosLoggingUtility.csproj.GenerateResource.cache
-C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Release\LogosLoggingUtility.csproj.CoreCompileInputs.cache
 C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Release\LogosLoggingUtility.exe
 C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Release\LogosLoggingUtility.pdb
+C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Release\Controllers\CardController.g.cs
+C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Release\Controllers\CardController.baml

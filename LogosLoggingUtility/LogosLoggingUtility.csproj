@@ -42,6 +42,7 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -60,6 +61,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controllers\CardManager.cs" />
+    <Compile Include="Model\Card.cs" />
+    <Compile Include="Model\Cards\LogCard.cs" />
+    <Compile Include="Model\Cards\RemoteCard.cs" />
+    <Compile Include="Model\Cards\RepairCard.cs" />
+    <Compile Include="Model\Cards\SupportCard.cs" />
+    <Compile Include="Controllers\CardController.xaml.cs">
+      <DependentUpon>CardController.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Helpers\LoggingEventHelper.cs" />
+    <Compile Include="Model\Helpers\FilePathHelper.cs" />
+    <Compile Include="Model\Helpers\TextColorHelper.cs" />
+    <Compile Include="View\CardOption.xaml.cs">
+      <DependentUpon>CardOption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CardView\LogCardView.xaml.cs">
+      <DependentUpon>LogCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CardView\RemoteCardView.xaml.cs">
+      <DependentUpon>RemoteCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CardView\RepairCardView.xaml.cs">
+      <DependentUpon>RepairCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CardView\TechToolsCard.xaml.cs">
+      <DependentUpon>TechToolsCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FilePathDisplay.xaml.cs">
+      <DependentUpon>FilePathDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CardView\SupportCardView.xaml.cs">
+      <DependentUpon>SupportCardView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -72,6 +106,38 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Controllers\CardController.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CardOption.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CardView\LogCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CardView\RemoteCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CardView\RepairCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CardView\TechToolsCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FilePathDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CardView\SupportCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -99,6 +165,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\LogosIconAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DefaultIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

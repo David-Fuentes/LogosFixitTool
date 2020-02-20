@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\obj\Debug\
+C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Debug\
 LogosLoggingUtility
 none
 false
 DEBUG;TRACE
-C:\Users\David.fuentes\source\repos\LogosLoggingUtility\LogosLoggingUtility\App.xaml
-11151548125
-1263364363
-6-1631521162
-15229469737
-MainWindow.xaml;
+C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\App.xaml
+9-1141366002
+
+231426464859
+16443856473
+MainWindow.xaml;Controllers\CardController.xaml;View\CardOption.xaml;View\CardView\LogCardView.xaml;View\CardView\RemoteCardView.xaml;View\CardView\RepairCardView.xaml;View\CardView\TechToolsCard.xaml;View\FilePathDisplay.xaml;View\CardView\SupportCardView.xaml;
 
 True
 
