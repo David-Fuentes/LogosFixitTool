@@ -43,5 +43,5 @@ C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\D
 C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Debug\View\CardView\LogCardView.baml
 C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Debug\View\CardView\RemoteCardView.g.cs
 C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Debug\View\CardView\RemoteCardView.baml
-C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Debug\View\CardView\TechToolsCard.g.cs
-C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Debug\View\CardView\TechToolsCard.baml
+C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Debug\View\CardView\TechToolsCardView.g.cs
+C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\obj\Debug\View\CardView\TechToolsCardView.baml

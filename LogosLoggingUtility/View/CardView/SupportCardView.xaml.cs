@@ -2,6 +2,7 @@
 using LogosLoggingUtility.Model.Helpers;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,6 +56,9 @@ namespace LogosLoggingUtility.View.CardView
 
         private void Bttn_DownloadLogosUpdate_Click(object sender, RoutedEventArgs e)
         {
+            var path = FilePathHelper.s_logosDefaultFilePath + @"\Logos.exe";
+            var fileInfo = new FileInfo(path);
+
             SupportCard.DownloadLogosUpdates(sender, e);
         }
     }

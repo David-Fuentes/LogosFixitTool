@@ -70,8 +70,10 @@
     <Compile Include="Controllers\CardController.xaml.cs">
       <DependentUpon>CardController.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Cards\TechToolsCard.cs" />
     <Compile Include="Model\Helpers\LoggingEventHelper.cs" />
     <Compile Include="Model\Helpers\FilePathHelper.cs" />
+    <Compile Include="Model\Helpers\ProcdumpCommand.cs" />
     <Compile Include="Model\Helpers\TextColorHelper.cs" />
     <Compile Include="View\CardOption.xaml.cs">
       <DependentUpon>CardOption.xaml</DependentUpon>
@@ -85,8 +87,8 @@
     <Compile Include="View\CardView\RepairCardView.xaml.cs">
       <DependentUpon>RepairCardView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CardView\TechToolsCard.xaml.cs">
-      <DependentUpon>TechToolsCard.xaml</DependentUpon>
+    <Compile Include="View\CardView\TechToolsCardView.xaml.cs">
+      <DependentUpon>TechToolsCardView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\FilePathDisplay.xaml.cs">
       <DependentUpon>FilePathDisplay.xaml</DependentUpon>
@@ -126,7 +128,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CardView\TechToolsCard.xaml">
+    <Page Include="View\CardView\TechToolsCardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

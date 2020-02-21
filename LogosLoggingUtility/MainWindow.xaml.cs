@@ -32,7 +32,6 @@ namespace LogosLoggingUtility
         public MainWindow()
         {
             InitializeComponent();
-            var result = FilePathHelper.LocateLogosFolders();
 
             var cardByCardType = CardManager.GetCardByCardType();
             this.Support.InitializeCardInfo(cardByCardType[Model.CardType.Support]);
@@ -41,41 +40,5 @@ namespace LogosLoggingUtility
             this.TechCard.InitializeCardInfo(cardByCardType[Model.CardType.Tech]);
             this.RemoteCard.InitializeCardInfo(cardByCardType[Model.CardType.Remote]);
         }
-
-        //public static void Bttn_Logs_Click()
-        //{
-        //    ArchiveLogsToDesktop(m_FaithlifeFilePath);
-        //}
-
-        
-
-
-        
-
-        //private void BttnFindFilePath_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var result = SupportCard.SetLogosFilePath(sender, e);
-        //    if (result != "")
-        //    {
-        //        InstallFilePath.SubText = result;
-        //        InstallFilePath.ActionButtonVisibility = Visibility.Collapsed;
-        //    }
-        //}
-
-        private void BttnLogosFilePath_Click(object sender, RoutedEventArgs e)
-        {
-            SupportCard.OpenLogosFilePath(sender, e);
-        }
-
-        private void BttnLogsFilePath_Click(object sender, RoutedEventArgs e)
-        {
-            SupportCard.OpenLogsFilePath(sender, e);
-        }
-
-        private string m_FaithlifeFilePath;
-        private string m_LogosFilePath;
-        private bool m_isLogos4Directory;
-
-        
     }
 }

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\App.xaml
-9-1141366002
+9-68124108
 
-221040239519
+24767282118
 16443856473
-MainWindow.xaml;Controllers\CardController.xaml;View\CardOption.xaml;View\CardView\LogCardView.xaml;View\CardView\RemoteCardView.xaml;View\CardView\RepairCardView.xaml;View\CardView\TechToolsCard.xaml;View\FilePathDisplay.xaml;View\CardView\SupportCardView.xaml;
+MainWindow.xaml;Controllers\CardController.xaml;View\CardOption.xaml;View\CardView\LogCardView.xaml;View\CardView\RemoteCardView.xaml;View\CardView\RepairCardView.xaml;View\CardView\TechToolsCardView.xaml;View\FilePathDisplay.xaml;View\CardView\SupportCardView.xaml;
 
 False
 
