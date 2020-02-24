@@ -1,4 +1,5 @@
 ﻿using LogosLoggingUtility.Model.Helpers;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -42,34 +43,22 @@ namespace LogosLoggingUtility.Model.Cards
 
         public static void EnableLogging()
         {
-            var webPath = "https://www.logos.com/media/tech/4xLogging/EnableLogging.js";
-            DownloadAndExecuteLoggingFile(webPath);
+            SetLoggingValue(true);
+            MessageBox.Show("Logging is now enabled");
         }
 
         public static void DisableLogging()
         {
-            var webPath = "https://www.logos.com/media/tech/4xLogging/DisableLogging.js";
-            DownloadAndExecuteLoggingFile(webPath);
+            SetLoggingValue(false);
+            MessageBox.Show("Logging is now disabled");
         }
 
-        private static string GetJsFilePath()
+        private static void SetLoggingValue(bool value)
         {
-            var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            var jsPath = desktopPath + @"\LogosLogs\EnableLogging.js";
-            return jsPath;
-        }
-
-        private static void DownloadAndExecuteLoggingFile(string webPath)
-        {
-            var jsPath = GetJsFilePath();
-            using (var client = new HttpClient())
+            using (var key = Registry.CurrentUser.CreateSubKey(@"Software\Logos4\Logging"))
             {
-                var response = client.GetStringAsync(webPath).GetAwaiter().GetResult();
-                File.WriteAllText(jsPath, response);
+                key.SetValue("Enabled", value ? 1 : 0);
             }
-
-            var process = new Process();
-            Process.Start(jsPath);
         }
     }
 }
