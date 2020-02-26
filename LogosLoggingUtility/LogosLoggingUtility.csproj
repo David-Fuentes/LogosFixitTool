@@ -37,6 +37,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logos Fixit Tool Icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
@@ -96,6 +99,12 @@
     <Compile Include="View\CardView\SupportCardView.xaml.cs">
       <DependentUpon>SupportCardView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\InfoPopup.xaml.cs">
+      <DependentUpon>InfoPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -140,6 +149,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\InfoPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -173,6 +190,33 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\DefaultIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogosLoggingUtility.Theme\LogosLoggingUtility.Theme.csproj">
+      <Project>{de2628ff-5d3b-49ea-8787-e99ed626358f}</Project>
+      <Name>LogosLoggingUtility.Theme</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconFolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Logos Fixit Tool Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconTeamviewer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconHeaderLog.png" />
+    <Resource Include="Images\IconHeaderRemote.png" />
+    <Resource Include="Images\IconHeaderRepair.png" />
+    <Resource Include="Images\IconHeaderTech.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconHeaderSupport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\IconInfo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,29 +9,59 @@
     <Grid Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
 
-        <local:CardOption Grid.Row="0" Grid.Column="0" x:Name="WindowsOptionView">
-            <local:CardOption.ActionButton>
-                <Label/>
-            </local:CardOption.ActionButton>
-        </local:CardOption>
-        
-        <local:CardOption Grid.Row="1" Grid.Column="1" x:Name="LogosOptionView">
-            <local:CardOption.ActionButton>
-                <Border BorderBrush="Blue" Background="Blue" BorderThickness="1" CornerRadius="8" Margin="0,10,0,10">
-                    <Button Background="Transparent" BorderBrush="Transparent" Foreground="White" Content="Download Update" Click="Bttn_DownloadLogosUpdate_Click"></Button>
-                </Border>
-            </local:CardOption.ActionButton>
-        </local:CardOption>
-        
-        <local:FilePathDisplay x:Name="LogosLocation" Grid.Row="2" Grid.Column="0"/>
-        <local:FilePathDisplay x:Name="VerbumLocation" Grid.Row="3" Grid.Column="0"/>
-        <local:FilePathDisplay x:Name="LogLocation" Grid.Row="4" Grid.Column="1"/>
+        <Grid Margin="0 10 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Logos Version:" 
+                   Grid.Column="0" 
+                   Foreground="#3d3d3d" 
+                   FontWeight="SemiBold"
+                   VerticalAlignment="Center"
+                   FontSize="16"/>
+
+            <Label x:Name="LogosVersionNumber" 
+                   Content="X.X" 
+                   Grid.Column="1" 
+                   Foreground="#333"
+                   VerticalAlignment="Center"
+                   FontSize="16"/>
+
+            <Label Content="Windows Build:" 
+                   Grid.Column="0" 
+                   Grid.Row="1"
+                   Foreground="#3d3d3d" 
+                   FontWeight="SemiBold"
+                   VerticalAlignment="Center"
+                   FontSize="16"/>
+
+            <Label x:Name="WindowsVersionNumber" 
+                   Content="X.X" 
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   Foreground="#333"
+                   VerticalAlignment="Center"
+                   FontSize="16"/>
+
+        </Grid>
+
+            
+
+        <local:FilePathDisplay x:Name="LogosLocation" Grid.Row="1" Grid.Column="0"/>
+        <local:FilePathDisplay x:Name="VerbumLocation" Grid.Row="2" Grid.Column="0"/>
+        <local:FilePathDisplay x:Name="LogLocation" Grid.Row="3" Grid.Column="1"/>
     </Grid>
 </UserControl>

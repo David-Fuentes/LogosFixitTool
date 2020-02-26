@@ -11,38 +11,33 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" BorderBrush="Blue" Background="Blue" CornerRadius="8" Margin="5">
-            <Button x:Name="Bttn_StartEventViewer" Click="Bttn_StartEventViewer_Click" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="Transparent">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\Images\DefaultIcon.png" Height="24"/>
-                    <Label Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="150">
-                        <TextBlock Text="Start Event Viewer" TextWrapping="Wrap" FontSize="16"/>
-                    </Label>
-                </StackPanel>
-            </Button>
-        </Border>
+        <Button x:Name="Bttn_StartEventViewer" 
+                Grid.Row="1"
+                Click="Bttn_StartEventViewer_Click" 
+                FontSize="14" 
+                Foreground="White" 
+                Content="Start Event Viewer"
+                Margin="2"/>
         
-        <Border Grid.Row="1" BorderBrush="Blue" Background="Blue" CornerRadius="8" Margin="5">
-            <Button x:Name="Bttn_GetProcdump" Click="Bttn_GetProcdump_Click" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="Transparent">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\Images\DefaultIcon.png" Height="24"/>
-                    <Label Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="150">
-                        <TextBlock Text="Get Procdump" TextWrapping="Wrap" FontSize="16"/>
-                    </Label>
-                </StackPanel>
-            </Button>
-        </Border>
-
-        <Border Grid.Row="2" BorderBrush="Blue" Background="Blue" CornerRadius="8" Margin="5">
-            <Button x:Name="Bttn_CorruptResources" Click="Bttn_CorruptResources_Click" FontSize="14" Foreground="White" Background="Transparent" BorderBrush="Transparent" IsEnabled="False">
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\Images\DefaultIcon.png" Height="24"/>
-                    <Label Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Detect Corrupt Resources"/>
-
-                </StackPanel>
-            </Button>
-        </Border>
+        <Button x:Name="Bttn_GetProcdump" 
+                Grid.Row="2"
+                Click="Bttn_GetProcdump_Click" 
+                FontSize="14" 
+                Foreground="White" 
+                Content="Get Procdump"
+                Margin="2"/>
+        
+        <Button x:Name="Bttn_CorruptResources"
+                Grid.Row="3"
+                Click="Bttn_CorruptResources_Click" 
+                FontSize="14" 
+                Foreground="White" 
+                IsEnabled="False" 
+                Content="Detect Corrupt Resources"
+                Margin="2">
+        </Button>
     </Grid>
 </UserControl>

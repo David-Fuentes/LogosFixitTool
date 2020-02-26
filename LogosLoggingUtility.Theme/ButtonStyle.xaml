@@ -1,0 +1,90 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:LogosLoggingUtility.Theme">
+
+    <Color x:Key="BackgroundColor" A="255" R="0" G="94" B="196"/>
+    <Color x:Key="BackgroundColorHover" A="255" R="25" G="119" B="222"/>
+    <Color x:Key="BackgroundColorDisabled" A="255" R="85" G="85" B="85"/>
+
+    <Style TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="t" 
+                            BorderBrush="Transparent" 
+                            BorderThickness="0" 
+                            Margin="{TemplateBinding Margin}"
+                            CornerRadius="4">
+
+                        <Border.Background>
+                            <SolidColorBrush x:Name="BackgroundColor" 
+                                             Color="{StaticResource BackgroundColor}"/>
+                        </Border.Background>
+
+                        <ContentPresenter Margin="{TemplateBinding Padding}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="IsDisabled">
+                                        <ColorAnimation Storyboard.TargetName="BackgroundColor"
+                                                        Storyboard.TargetProperty="Color"
+                                                        To="{StaticResource BackgroundColorDisabled}"
+                                                        Duration="0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="IsEnabled">
+                                        <ColorAnimation Storyboard.TargetName="BackgroundColor"
+                                                        Storyboard.TargetProperty="Color"
+                                                        To="{StaticResource BackgroundColor}"
+                                                        Duration="0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsEnabled" Value="True"/>
+                                <Condition Property="IsMouseOver" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard  x:Name="MouseOverAnimation">
+                                        <ColorAnimation Storyboard.TargetName="BackgroundColor"
+                                                        Storyboard.TargetProperty="Color"
+                                                        To="{StaticResource BackgroundColorHover}"
+                                                        Duration="0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.EnterActions>
+                            
+                            <MultiTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard  x:Name="MouseExitAnimation">
+                                        <ColorAnimation Storyboard.TargetName="BackgroundColor"
+                                                        Storyboard.TargetProperty="Color"
+                                                        To="{StaticResource BackgroundColor}"
+                                                        Duration="0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiTrigger.ExitActions>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

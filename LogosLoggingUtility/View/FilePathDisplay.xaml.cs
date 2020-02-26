@@ -1,19 +1,7 @@
 ﻿using LogosLoggingUtility.Model.Cards;
 using LogosLoggingUtility.Model.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LogosLoggingUtility.View
 {
@@ -29,7 +17,7 @@ namespace LogosLoggingUtility.View
 
         private void Bttn_OpenFileLocation_Click(object sender, RoutedEventArgs e)
         {
-            FilePathHelper.OpenFileExplorerToPath(FilePath.Content.ToString());
+            FilePathHelper.OpenFileExplorerToPath(FilePath.Text.ToString());
         }
 
         private void Bttn_FindFileLocation_Click(object sender, RoutedEventArgs e)
@@ -38,11 +26,14 @@ namespace LogosLoggingUtility.View
             if (!string.IsNullOrEmpty(result) && RepairCard.IsValidRepairPath(result))
             {
                 SetPathHeader(result);
-                LoggingEventHelper.RaiseFilePathChangedEvent(this, result, Type);
+                Bttn_OpenFileLocation.Visibility = Visibility.Visible;
+                LoggingEventHelper.RaiseFilePathChangedEvent(this, (result, true), Type);
             }
-            else
+            else if(!string.IsNullOrEmpty(result))
             {
                 SetPathHeader("Unable to find Logos or Verbum in selected folder.", false);
+                LoggingEventHelper.RaiseFilePathChangedEvent(this, (result, false), Type);
+                Bttn_OpenFileLocation.Visibility = Visibility.Hidden;
             }
         }
 
@@ -53,8 +44,9 @@ namespace LogosLoggingUtility.View
 
         public void SetPathHeader(string header, bool isFound = true)
         {
-            FilePath.Content = header;
+            FilePath.Text = header;
             FilePath.Foreground = isFound ? TextColorHelper.s_plainTextColor : TextColorHelper.s_errorTextColor;
+            Bttn_OpenFileLocation.Visibility = isFound ? Visibility.Visible : Visibility.Hidden;
         }
 
         public void SetType(RepairCard.FileType type)

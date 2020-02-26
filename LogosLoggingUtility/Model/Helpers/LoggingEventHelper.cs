@@ -1,9 +1,5 @@
 ﻿using LogosLoggingUtility.Model.Cards;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogosLoggingUtility.Model.Helpers
 {
@@ -12,10 +8,9 @@ namespace LogosLoggingUtility.Model.Helpers
         public static event EventHandler<PathUpdateEventArgs> OnFilePathChanged;
         public static event EventHandler<EventArgs> OnDownloadFinished;
 
-        public static void RaiseFilePathChangedEvent(object sender, string newPath, RepairCard.FileType type)
+        public static void RaiseFilePathChangedEvent(object sender, (string newPath, bool validPath) result , RepairCard.FileType type)
         {
-            OnFilePathChanged(sender, new PathUpdateEventArgs(newPath, type));
-            Console.WriteLine("File path event has been raised");
+            OnFilePathChanged(sender, new PathUpdateEventArgs(result.newPath, type, result.validPath));
         }
 
         public static void RaiseDownloadFinishedEvent(object sender, EventArgs e)
@@ -26,12 +21,14 @@ namespace LogosLoggingUtility.Model.Helpers
 
     public class PathUpdateEventArgs : EventArgs
     {
-        public PathUpdateEventArgs(string path, RepairCard.FileType type)
+        public PathUpdateEventArgs(string path, RepairCard.FileType type, bool valid)
         {
             UpdatedPath = path;
             FileType = type;
+            IsValidPath = valid;
         }
         public string UpdatedPath { get; set; }
+        public bool IsValidPath { get; set; }
         public RepairCard.FileType FileType { get; set; }
     }
 }

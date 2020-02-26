@@ -8,18 +8,30 @@
              d:DesignHeight="50" d:DesignWidth="600">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="16"/>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="24"/>
+            <ColumnDefinition Width="175"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="60"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Bttn_OpenFileLocation" Click="Bttn_OpenFileLocation_Click" Background="Transparent" BorderBrush="Transparent">
-            <Image Source="C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\Images\DefaultIcon.png"/>
+        <Button x:Name="Bttn_OpenFileLocation" Click="Bttn_OpenFileLocation_Click" Height="24" Width="24">
+            <Image Source="C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\Images\IconFolder.png"/>
         </Button>
-        <Label Grid.Column="1" x:Name="FileHeader" Content="Verbum File Path" VerticalAlignment="Center"/>
-        <Label Grid.Column="2" x:Name="FilePath" Content="Unable to find file path. Please click find." VerticalAlignment="Center" FontWeight="Bold"/>
-        <Border Grid.Column="3" BorderBrush="Blue" Background="Blue" CornerRadius="8">
-            <Button x:Name="Bttn_FindFileLocation" Click="Bttn_FindFileLocation_Click" Content="Find" Foreground="White" Background="Transparent" BorderBrush="Transparent"/>
-        </Border>
+
+        <Label Grid.Column="1" 
+               x:Name="FileHeader" 
+               Content="Verbum File Path" 
+               VerticalAlignment="Center" 
+               Foreground="#3d3d3d" 
+               FontSize="14" 
+               FontWeight="SemiBold" 
+               HorizontalAlignment="Right"/>
+
+        <Label Grid.Column="2" 
+               VerticalAlignment="Center" 
+               Foreground="#333">
+
+            <TextBlock TextTrimming="CharacterEllipsis" x:Name="FilePath" Text="Unable to find file path. Please click find." FontSize="14"/>
+        </Label>
+        <Button Grid.Column="3" x:Name="Bttn_FindFileLocation" Click="Bttn_FindFileLocation_Click" Content="Change" Margin="1"/>
     </Grid>
 </UserControl>

@@ -1,19 +1,8 @@
 ﻿using LogosLoggingUtility.Model.Cards;
 using LogosLoggingUtility.Model.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LogosLoggingUtility.View.CardView
 {
@@ -41,12 +30,12 @@ namespace LogosLoggingUtility.View.CardView
             if (e.FileType == RepairCard.FileType.Logos)
             {
                 m_SelectedLogosRepairPath = e.UpdatedPath;
-                Bttn_RepairLogos.IsEnabled = true;
+                SetButtonEnabled(Bttn_RepairLogos, e.IsValidPath);
             }
             else if (e.FileType == RepairCard.FileType.Verbum)
             {
                 m_SelectedVerbumRepairPath = e.UpdatedPath;
-                Bttn_RepairVerbum.IsEnabled = true;
+                SetButtonEnabled(Bttn_RepairVerbum, e.IsValidPath);
             }
         }
 
@@ -65,6 +54,11 @@ namespace LogosLoggingUtility.View.CardView
                 else
                     RepairCard.RepairInstallation(m_SelectedVerbumRepairPath);
 
+        }
+
+        private void SetButtonEnabled(Button button, bool enabled)
+        {
+            button.IsEnabled = enabled;
         }
 
         private string m_SelectedLogosRepairPath;

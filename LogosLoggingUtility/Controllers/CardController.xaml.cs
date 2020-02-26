@@ -1,4 +1,5 @@
 ﻿using LogosLoggingUtility.Model;
+using LogosLoggingUtility.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,19 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LogosLoggingUtility.Controllers
 {
-    /// <summary>
-    /// Interaction logic for CardViewModel.xaml
-    /// </summary>
     public partial class CardController : UserControl
     {
         public CardController()
@@ -28,14 +20,23 @@ namespace LogosLoggingUtility.Controllers
 
         public void InitializeCardInfo(Card card)
         {
-            var cardIcon = new Image();
+            m_card = card;
             BitmapImage bimage = new BitmapImage();
             bimage.BeginInit();
-            bimage.UriSource = new Uri(card.IconSource, UriKind.Relative);
+            bimage.UriSource = new Uri(m_card.IconSource, UriKind.Relative);
             bimage.EndInit();
 
-            this.CardIcon = cardIcon;
-            this.CardName.Content = card.CardHeader;
+            CardIcon.Source = bimage;
+            this.CardName.Content = m_card.CardHeader;
         }
+
+        private void InfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            var info = new Window1();
+            info.CardFeatureList.ItemsSource = CardManager.CardDescriptionByCardType[m_card.Type].Features;
+            info.ShowDialog();
+        }
+
+        private Card m_card;
     }
 }

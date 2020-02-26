@@ -1,33 +1,24 @@
-﻿using Microsoft.Win32;
+﻿using LogosLoggingUtility.Model.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using System.Diagnostics;
 
 namespace LogosLoggingUtility.Model.Cards
 {
     public static class SupportCard
     {
-        public static void CheckForWindowsUpdates(object sender, RoutedEventArgs args)
+        public static (string major, string minor) GetLogosVersionNumber()
         {
-            MessageBox.Show("Checking for Updates");
+            var path = FilePathHelper.s_logosDefaultFilePath + @"\Logos.exe";
+            var info = FileVersionInfo.GetVersionInfo(path);
+            return (info.FileMajorPart.ToString(), info.FileMinorPart.ToString());
+
         }
 
-        public static void DownloadLogosUpdates(object sender, RoutedEventArgs args)
+        public static string GetWindowsVersion()
         {
-            MessageBox.Show("Downloading Logos Updates");
+            var osVersion = Environment.OSVersion.Version;
+            return osVersion.Build.ToString();
         }
-        public static void OpenLogosFilePath(object sender, RoutedEventArgs args)
-        {
-            MessageBox.Show("Opening Logos File Path");
-        }
-        public static void OpenLogsFilePath(object sender, RoutedEventArgs args)
-        {
-            MessageBox.Show("Opening Logs File Path");
-        }
-
     }
 
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LogosLoggingUtility.Model.Helpers
+﻿namespace LogosLoggingUtility.Model.Helpers
 {
     public static class ProcdumpCommand
     {
