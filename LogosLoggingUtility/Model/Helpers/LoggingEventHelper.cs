@@ -1,5 +1,6 @@
 ﻿using LogosLoggingUtility.Model.Cards;
 using System;
+using System.Diagnostics;
 
 namespace LogosLoggingUtility.Model.Helpers
 {
@@ -17,6 +18,7 @@ namespace LogosLoggingUtility.Model.Helpers
         {
             OnDownloadFinished(sender, e);
         }
+
     }
 
     public class PathUpdateEventArgs : EventArgs
@@ -31,4 +33,5 @@ namespace LogosLoggingUtility.Model.Helpers
         public bool IsValidPath { get; set; }
         public RepairCard.FileType FileType { get; set; }
     }
+    
 }

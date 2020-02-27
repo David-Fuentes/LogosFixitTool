@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace LogosLoggingUtility.Model.Cards
@@ -50,20 +51,10 @@ namespace LogosLoggingUtility.Model.Cards
 
         private static void StartCmd(string installDirectory, bool altCommand = false)
         {
-            Process process = new Process();
-            ProcessStartInfo startInfo = new ProcessStartInfo()
-            {
-                Arguments = altCommand ? ProcdumpCommand.GetAltCommand(installDirectory) :  ProcdumpCommand.GetCommand(installDirectory),
-                FileName = m_cmdPath,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true
-            };
+            var commandArg = altCommand ? CommandHelper.GetAltProcdumpCommand(installDirectory) : CommandHelper.GetProcdumpCommand(installDirectory);
 
-            process.StartInfo = startInfo;
-            process.Start();
+            var result = OpenCommandPromptWithCommand(commandArg);
 
-            var result = process.StandardOutput.ReadToEnd();
             if (result.Contains("Dump count not reached"))
             {
                 if (altCommand)
@@ -78,6 +69,56 @@ namespace LogosLoggingUtility.Model.Cards
             }
         }
 
+        public static void RunBits()
+        {
+            var result = OpenCommandPromptWithCommand(CommandHelper.BitsCommand);
+            if (string.IsNullOrEmpty(result))
+            {
+                MessageBox.Show("BITS has failed to respond. Please contact a Faithlife Technical Support rep.");
+                return;
+            }
+            var pattern = @"Listed \d job";
+
+            var match = Regex.Match(result, pattern, RegexOptions.None);
+            if (match.Success)
+            {
+                var jobs = match.Value.Split(' ')[1];
+                if (int.TryParse(jobs, out var jobNumber) && jobNumber > 0)
+                {
+                    OpenCommandPromptWithCommand(CommandHelper.BitsReset);
+                    MessageBox.Show("BITS jobs have been reset.");
+                }
+                else if (jobNumber == 0)
+                {
+                    MessageBox.Show("You have no BITS jobs.");
+                }
+                else
+                {
+                    MessageBox.Show("Unable to detect number of BITS jobs. Please contact Faithlife Technical Support.");
+                }
+            }
+            else
+            {
+                MessageBox.Show($"ERROR: There was a problem with running BITS. \n\n{result}");
+            }
+        }
+
+        private static string OpenCommandPromptWithCommand(string commandArg)
+        {
+            var process = new Process();
+            var startInfo = new ProcessStartInfo()
+            {
+                Arguments = commandArg,
+                FileName = m_cmdPath,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true
+            };
+
+            process.StartInfo = startInfo;
+            process.Start();
+            return process.StandardOutput.ReadToEnd();
+        }
 
         private static string m_eventViewerPath = Environment.GetFolderPath(Environment.SpecialFolder.System) + @"\eventvwr";
         private static string m_cmdPath= Environment.GetFolderPath(Environment.SpecialFolder.System) + @"\cmd";

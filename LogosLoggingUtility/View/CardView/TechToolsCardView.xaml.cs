@@ -25,9 +25,9 @@ namespace LogosLoggingUtility.View.CardView
             TechToolsCard.GetProcdump(e);
         }
 
-        private void Bttn_CorruptResources_Click(object sender, RoutedEventArgs e)
+        private void Bttn_BitsTroubleshooting_Click(object sender, RoutedEventArgs e)
         {
-
+            TechToolsCard.RunBits();
         }
     }
 }

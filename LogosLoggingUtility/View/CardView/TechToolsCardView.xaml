@@ -30,13 +30,11 @@
                 Content="Get Procdump"
                 Margin="2"/>
         
-        <Button x:Name="Bttn_CorruptResources"
+        <Button x:Name="Bttn_BitsTroubleshooting"
                 Grid.Row="3"
-                Click="Bttn_CorruptResources_Click" 
+                Click="Bttn_BitsTroubleshooting_Click" 
                 FontSize="14" 
-                Foreground="White" 
-                IsEnabled="False" 
-                Content="Detect Corrupt Resources"
+                Content="Bits Troubleshooting"
                 Margin="2">
         </Button>
     </Grid>

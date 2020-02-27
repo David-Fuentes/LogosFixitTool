@@ -76,7 +76,7 @@
     <Compile Include="Model\Cards\TechToolsCard.cs" />
     <Compile Include="Model\Helpers\LoggingEventHelper.cs" />
     <Compile Include="Model\Helpers\FilePathHelper.cs" />
-    <Compile Include="Model\Helpers\ProcdumpCommand.cs" />
+    <Compile Include="Model\Helpers\CommandHelper.cs" />
     <Compile Include="Model\Helpers\TextColorHelper.cs" />
     <Compile Include="View\CardOption.xaml.cs">
       <DependentUpon>CardOption.xaml</DependentUpon>
