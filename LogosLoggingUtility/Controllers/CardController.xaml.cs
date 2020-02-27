@@ -30,13 +30,6 @@ namespace LogosLoggingUtility.Controllers
             this.CardName.Content = m_card.CardHeader;
         }
 
-        private void InfoButton_Click(object sender, RoutedEventArgs e)
-        {
-            var info = new Window1();
-            info.CardFeatureList.ItemsSource = CardManager.CardDescriptionByCardType[m_card.Type].Features;
-            info.ShowDialog();
-        }
-
         private Card m_card;
     }
 }

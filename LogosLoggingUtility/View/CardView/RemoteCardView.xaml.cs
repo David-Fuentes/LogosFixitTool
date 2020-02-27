@@ -6,9 +6,6 @@ using System.Windows.Controls;
 
 namespace LogosLoggingUtility.View.CardView
 {
-    /// <summary>
-    /// Interaction logic for RemoteCardView.xaml
-    /// </summary>
     public partial class RemoteCardView : UserControl
     {
         public RemoteCardView()

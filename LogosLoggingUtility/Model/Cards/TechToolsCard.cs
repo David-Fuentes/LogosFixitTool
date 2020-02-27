@@ -25,6 +25,11 @@ namespace LogosLoggingUtility.Model.Cards
 
         public static void GetProcdump(System.Windows.RoutedEventArgs e)
         {
+            if (ProcessHelper.LogosOrVerbumIsOpen())
+            {
+                MessageBox.Show("Logos/ Verbum is open; please close before continuing.");
+                return;
+            }
             e.Handled = true;
             var client = new WebClient();
             client.DownloadFileCompleted += OnFileDownloaded; ;
@@ -33,25 +38,26 @@ namespace LogosLoggingUtility.Model.Cards
 
         private static void OnFileDownloaded(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
-            var installDirectory = FilePathHelper.SetFilePath();
-            if (!string.IsNullOrEmpty(installDirectory))
+            var installDirectory = FilePathHelper.SetNewFilePath();
+            var result = RepairCard.IsValidRepairPath(installDirectory);
+            if (result.isValid)
             {
                 if (File.Exists($@"{installDirectory}\procdump.exe") || File.Exists($@"{installDirectory}\procdump64.exe"))
                 {
-                    StartCmd(installDirectory);
+                    StartProcdumpCmd(installDirectory, result.type);
                 }
                 else
                 {
                     ZipFile.ExtractToDirectory(m_procdumpPath, installDirectory);
-                    StartCmd(installDirectory);
+                    StartProcdumpCmd(installDirectory, result.type);
                 }
             }
 
         }
 
-        private static void StartCmd(string installDirectory, bool altCommand = false)
+        private static void StartProcdumpCmd(string installDirectory, RepairCard.FileType type, bool altCommand = false)
         {
-            var commandArg = altCommand ? CommandHelper.GetAltProcdumpCommand(installDirectory) : CommandHelper.GetProcdumpCommand(installDirectory);
+            var commandArg = altCommand ? CommandHelper.GetAltProcdumpCommand(installDirectory, type) : CommandHelper.GetProcdumpCommand(installDirectory, type);
 
             var result = OpenCommandPromptWithCommand(commandArg);
 
@@ -64,7 +70,7 @@ namespace LogosLoggingUtility.Model.Cards
                 else
                 {
                     MessageBox.Show("Unable to get procdump. Please retry to recreate crash.");
-                    StartCmd(installDirectory, true);
+                    StartProcdumpCmd(installDirectory, type, true);
                 }
             }
         }

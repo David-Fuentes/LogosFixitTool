@@ -17,7 +17,7 @@ namespace LogosLoggingUtility.Model.Helpers
             return (logosWasFound, logos4WasFound, faithlifeWasFound, verbumWasFound);
         }
 
-        public static string SetFilePath()
+        public static string SetNewFilePath()
         {
             var filePath = "";
             using (var fileDialog = new OpenFileDialog())
@@ -35,7 +35,7 @@ namespace LogosLoggingUtility.Model.Helpers
             return filePath;
         }
 
-        public static string SetFolderPath()
+        public static string SetNewFolderPath()
         {
             var folderPath = "";
             using (var folderDialog = new FolderBrowserDialog())

@@ -14,7 +14,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\Images\IconTeamviewer.png" Height="64" Margin="0,0,10,0" Grid.Column="0"/>
+            <Image Source="/Images\IconTeamviewer.png" Height="64" Margin="0,0,10,0" Grid.Column="0"/>
             <Label Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
                 <TextBlock Text="Start Teamviewer" TextWrapping="Wrap" FontSize="24"/>
             </Label>

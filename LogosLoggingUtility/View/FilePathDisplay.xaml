@@ -14,7 +14,7 @@
             <ColumnDefinition Width="60"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="Bttn_OpenFileLocation" Click="Bttn_OpenFileLocation_Click" Height="24" Width="24">
-            <Image Source="C:\Users\David.fuentes\Documents\GitHub\LogosFixitTool\LogosLoggingUtility\Images\IconFolder.png"/>
+            <Image Source="/Images\IconFolder.png"/>
         </Button>
 
         <Label Grid.Column="1" 

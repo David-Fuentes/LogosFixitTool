@@ -12,6 +12,11 @@ namespace LogosLoggingUtility.Model.Cards
     {
         public static void ArchiveLogsToDesktop(string folderPath)
         {
+            if (ProcessHelper.LogosOrVerbumIsOpen())
+            {
+                MessageBox.Show("Logos/ Verbum must be closed before archiving logs. Please close before continuing.");
+                return;
+            }
             try
             {
                 var timeStamp = DateTime.Now.ToString("yyyy''MM''dd'-'HH''mm''ss");

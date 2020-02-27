@@ -13,7 +13,6 @@ namespace LogosLoggingUtility.View.CardView
         public LogCardView()
         {
             InitializeComponent();
-            m_SelectedLoggingFolder = FilePathHelper.s_faithlifeDefaultFilePath;
             LoggingEventHelper.OnFilePathChanged += OnFilePathUpdated;
         }
 
@@ -30,14 +29,12 @@ namespace LogosLoggingUtility.View.CardView
         private void OnFilePathUpdated(object sender, PathUpdateEventArgs e)
         {
             if (e.FileType == RepairCard.FileType.Log)
-                m_SelectedLoggingFolder = e.UpdatedPath;
+                FilePathHelper.s_faithlifeDefaultFilePath = e.UpdatedPath;
         }
 
         private void Bttn_ArchiveLogs_Click(object sender, RoutedEventArgs e)
         {
-            LogCard.ArchiveLogsToDesktop(m_SelectedLoggingFolder);
+            LogCard.ArchiveLogsToDesktop(FilePathHelper.s_faithlifeDefaultFilePath);
         }
-
-        private string m_SelectedLoggingFolder;
     }
 }

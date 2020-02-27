@@ -4,9 +4,6 @@ using System.Windows.Controls;
 
 namespace LogosLoggingUtility.View.CardView
 {
-    /// <summary>
-    /// Interaction logic for SupportCardView.xaml
-    /// </summary>
     public partial class SupportCardView : UserControl
     {
         public SupportCardView()
@@ -21,6 +18,9 @@ namespace LogosLoggingUtility.View.CardView
             LogosLocation.SetFileHeader("Logos Install Location: ");
             VerbumLocation.SetFileHeader("Verbum Install Location: ");
             LogLocation.SetFileHeader("Log Location: ");
+
+            LogosLocation.SetType(RepairCard.FileType.Logos);
+            VerbumLocation.SetType(RepairCard.FileType.Verbum);
 
             if (result.logosWasFound)
                 LogosLocation.SetPathHeader(FilePathHelper.s_logosDefaultFilePath);

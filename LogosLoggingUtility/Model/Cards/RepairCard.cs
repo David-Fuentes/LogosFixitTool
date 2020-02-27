@@ -12,17 +12,26 @@ namespace LogosLoggingUtility.Model.Cards
         {
             Verbum,
             Logos,
-            Log
+            Log,
+            Invalid
         }
 
-        public static bool IsValidRepairPath(string basePath)
+        public static (bool isValid, RepairCard.FileType type) IsValidRepairPath(string basePath)
         {
-            var result = false;
-            if (File.Exists(basePath + @"\Install\Installers\Logos4Prerequisites.msi") ||
-                File.Exists(basePath + @"\Install\Installers\Logos-x64.msi") ||
-                File.Exists(basePath + @"\Install\Installers\Verbum-x64.msi"))
-                result = true;
-            return result;
+            var isValid = false;
+            var installType = RepairCard.FileType.Invalid;
+
+            if (File.Exists(basePath + @"\Install\Installers\Logos4Prerequisites.msi") || File.Exists(basePath + @"\Install\Installers\Logos-x64.msi"))
+            {
+                isValid = true;
+                installType = FileType.Logos;
+            }
+            else if(File.Exists(basePath + @"\Install\Installers\Verbum-x64.msi"))
+            {
+                isValid = true;
+                installType = FileType.Verbum;
+            }
+            return (isValid, installType);
         }
 
         public static void RepairInstallation(FileType type)

@@ -4,9 +4,6 @@ using System.Windows.Controls;
 
 namespace LogosLoggingUtility.View.CardView
 {
-    /// <summary>
-    /// Interaction logic for TechToolsCard.xaml
-    /// </summary>
     public partial class TechToolsCardView : UserControl
     {
         public TechToolsCardView()

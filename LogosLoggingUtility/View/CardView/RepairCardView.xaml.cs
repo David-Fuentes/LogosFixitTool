@@ -6,9 +6,6 @@ using System.Windows.Controls;
 
 namespace LogosLoggingUtility.View.CardView
 {
-    /// <summary>
-    /// Interaction logic for RepairCardView.xaml
-    /// </summary>
     public partial class RepairCardView : UserControl
     {
         public RepairCardView()
@@ -25,8 +22,6 @@ namespace LogosLoggingUtility.View.CardView
 
         private void OnFilePathUpdated(object sender, PathUpdateEventArgs e)
         {
-            Console.WriteLine($"File Path Updated. Sent from {sender}. Updated to {e.UpdatedPath}");
-            
             if (e.FileType == RepairCard.FileType.Logos)
             {
                 m_SelectedLogosRepairPath = e.UpdatedPath;

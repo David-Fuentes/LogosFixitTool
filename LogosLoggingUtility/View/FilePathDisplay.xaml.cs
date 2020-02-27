@@ -22,8 +22,8 @@ namespace LogosLoggingUtility.View
 
         private void Bttn_FindFileLocation_Click(object sender, RoutedEventArgs e)
         {
-            var result = FilePathHelper.SetFilePath();
-            if (!string.IsNullOrEmpty(result) && RepairCard.IsValidRepairPath(result))
+            var result = FilePathHelper.SetNewFilePath();
+            if (!string.IsNullOrEmpty(result) && RepairCard.IsValidRepairPath(result).isValid)
             {
                 SetPathHeader(result);
                 Bttn_OpenFileLocation.Visibility = Visibility.Visible;
