@@ -22,7 +22,7 @@ namespace LogosLoggingUtility.Model.Helpers
             var filePath = "";
             using (var fileDialog = new OpenFileDialog())
             {
-                fileDialog.FileName = "Select Logos or Verbum Application";
+                fileDialog.FileName = "Select App";
                 fileDialog.Filter = "Application (*.exe)|*.exe";
                 fileDialog.Title = "Find Application";
 
