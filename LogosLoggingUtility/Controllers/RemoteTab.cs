@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 
-namespace LogosLoggingUtility.Model.Cards
+namespace LogosLoggingUtility.Controllers
 {
-    public static class RemoteCard
+    public static class RemoteTab
     {
         public static void DownloadTeamviewer()
         {

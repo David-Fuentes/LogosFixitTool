@@ -6,9 +6,9 @@ using System.IO;
 using System.IO.Compression;
 using System.Windows.Forms;
 
-namespace LogosLoggingUtility.Model.Cards
+namespace LogosLoggingUtility.Controllers
 {
-    public static class LogCard
+    public static class LoggingTab
     {
         public static void ArchiveLogsToDesktop(string folderPath)
         {

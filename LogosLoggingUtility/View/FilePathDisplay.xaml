@@ -13,7 +13,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="60"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Bttn_OpenFileLocation" Click="Bttn_OpenFileLocation_Click" Height="24" Width="24">
+        <Button x:Name="Bttn_OpenFileLocation"  Height="24" Width="24">
             <Image Source="/Images\IconFolder.png"/>
         </Button>
 
@@ -32,6 +32,6 @@
 
             <TextBlock TextTrimming="CharacterEllipsis" x:Name="FilePath" Text="Unable to find file path. Please click find." FontSize="14"/>
         </Label>
-        <Button Grid.Column="3" x:Name="Bttn_FindFileLocation" Click="Bttn_FindFileLocation_Click" Content="Change" Margin="1"/>
+        <Button Grid.Column="3" x:Name="Bttn_FindFileLocation"  Content="Change" Margin="1"/>
     </Grid>
 </UserControl>
