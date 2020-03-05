@@ -1,22 +1,8 @@
 ﻿using LogosLoggingUtility.Controllers;
-using LogosLoggingUtility.Model;
 using LogosLoggingUtility.Model.Helpers;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace LogosLoggingUtility.View.Tabs
 {
@@ -27,73 +13,57 @@ namespace LogosLoggingUtility.View.Tabs
     {
         public SupportView()
         {
-            this.DataContext = InstallVersionHelper.InstallInfo;
+            m_supportViewModel = new SupportViewModel();
+            DataContext = m_supportViewModel;
             InitializeComponent();
 
-            windowsVersionNumber.Content = SupportTab.GetWindowsVersion();
-            UpdateVersionNumber();
-            UpdateFilePath();
         }
 
-        private void UpdateVersionNumber()
+        private void SwitchSoftware_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            softwareVersionNumber.Content = SupportTab.GetVersionText();
+            e.CanExecute = m_supportViewModel.CanSwitchSoftware();
+        }
+        private void SwitchSoftware_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            m_supportViewModel.ChangePreferredSoftware();
         }
 
-        private void UpdateFilePath()
+        private void UpdateSoftware_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            var path = SupportTab.GetFilePath();
-            if (!string.IsNullOrEmpty(path))
-            {
-                filePath.Text = path;
-                EnableButtons();
-            }
-            else
-            {
-                filePath.Text = $"Unable to find {InstallVersionHelper.InstallInfo.InstalledVersion} file path. Please click `Find`.";
-                DisableButtons();
-            }
+            e.CanExecute = m_supportViewModel.UpdatesAreAvailable();
+        }
+        private void UpdateSoftware_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            m_supportViewModel.CheckForUpdates();
         }
 
-        private void EnableButtons()
+        private void CheckForWindowsUpdates_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            bttn_Open.Visibility = Visibility.Visible;
+
+        }
+        private void CheckForWindowsUpdates_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
         }
 
-        private void DisableButtons()
+        private void OpenSoftware_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            bttn_Open.Visibility = Visibility.Hidden;
+            e.CanExecute = m_supportViewModel.CanOpenSoftware();
+        }
+        private void OpenSoftware_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            m_supportViewModel.OpenSoftware();
         }
 
-        private void ChangeSoftwareType_Click(object sender, RoutedEventArgs e)
+        private void OpenFolderLocation_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (InstallVersionHelper.InstallInfo.InstalledVersion == "Logos")
-            {
-                InstallVersionHelper.InstallInfo.InstalledVersion = "Verbum";
-                InstallVersionHelper.InstallInfo.OtherVersion = "Logos";
-            }
-            else
-            {
-                InstallVersionHelper.InstallInfo.InstalledVersion ="Logos";
-                InstallVersionHelper.InstallInfo.OtherVersion ="Verbum";
-            }
-            UpdateFilePath();
-            UpdateVersionNumber();
+            e.CanExecute = m_supportViewModel.CanOpenSoftware();
+        }
+        private void OpenFolderLocation_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            m_supportViewModel.OpenFolder();
         }
 
-        private void bttn_Find_Click(object sender, RoutedEventArgs e)
-        {
-            FilePathHelper.SetNewFilePath();
-        }
-
-        private void bttn_Open_Click(object sender, RoutedEventArgs e)
-        {
-            FilePathHelper.OpenFileExplorerToPath(SupportTab.GetFilePath());
-        }
-
-        private void bttn_Open_Software_Click(object sender, RoutedEventArgs e)
-        {
-            SupportTab.OpenSoftware();
-        }
+        readonly SupportViewModel m_supportViewModel;
     }
 }

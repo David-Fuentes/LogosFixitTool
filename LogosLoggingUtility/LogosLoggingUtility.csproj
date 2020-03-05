@@ -102,14 +102,16 @@
     </ApplicationDefinition>
     <Compile Include="Model\Helpers\InstallVersionHelper.cs" />
     <Compile Include="Model\Helpers\RegistryHelper.cs" />
-    <Compile Include="Controllers\LoggingTab.cs" />
-    <Compile Include="Controllers\RemoteTab.cs" />
-    <Compile Include="Controllers\RepairTab.cs" />
-    <Compile Include="Controllers\SupportTab.cs" />
+    <Compile Include="Model\INPCBase.cs" />
+    <Compile Include="Model\SupportInfoModel.cs" />
+    <Compile Include="Viewmodels\LoggingTab.cs" />
+    <Compile Include="Viewmodels\RemoteTab.cs" />
+    <Compile Include="Viewmodels\RepairTab.cs" />
+    <Compile Include="Viewmodels\SupportViewModel.cs" />
     <Compile Include="View\CardTemplate.xaml.cs">
       <DependentUpon>CardTemplate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\TechToolsTab.cs" />
+    <Compile Include="Viewmodels\TechToolsTab.cs" />
     <Compile Include="Model\Helpers\LoggingEventHelper.cs" />
     <Compile Include="Model\Helpers\FilePathHelper.cs" />
     <Compile Include="Model\Helpers\CommandHelper.cs" />
@@ -224,6 +226,20 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WUApiLib">
+      <Guid>{B596CC9F-56E5-419E-A622-E01BB457431E}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

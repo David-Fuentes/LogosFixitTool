@@ -1,4 +1,5 @@
-﻿<UserControl x:Class="LogosLoggingUtility.View.Tabs.SupportView"
+﻿<UserControl x:Name="SupportTab" 
+             x:Class="LogosLoggingUtility.View.Tabs.SupportView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,6 +8,32 @@
              xmlns:local="clr-namespace:LogosLoggingUtility.View.Tabs"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="740">
+    <UserControl.Resources>
+        <RoutedCommand x:Key="SwitchPreferredSoftware"/>
+        <RoutedCommand x:Key="UpdateSoftware"/>
+        <RoutedCommand x:Key="OpenSoftware"/>
+        <RoutedCommand x:Key="CheckForWindowsUpdates"/>
+        <RoutedCommand x:Key="OpenFolderLocation"/>
+    </UserControl.Resources>
+
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{StaticResource SwitchPreferredSoftware}"
+                        CanExecute="SwitchSoftware_CanExecute"
+                        Executed="SwitchSoftware_Executed"/>
+        <CommandBinding Command="{StaticResource UpdateSoftware}"
+                        CanExecute="UpdateSoftware_CanExecute"
+                        Executed="UpdateSoftware_Executed"/>
+        <CommandBinding Command="{StaticResource CheckForWindowsUpdates}"
+                        CanExecute="CheckForWindowsUpdates_CanExecute"
+                        Executed="CheckForWindowsUpdates_Executed"/>
+        <CommandBinding Command="{StaticResource OpenSoftware}"
+                        CanExecute="OpenSoftware_CanExecute"
+                        Executed="OpenSoftware_Executed"/>
+        <CommandBinding Command="{StaticResource OpenFolderLocation}"
+                        CanExecute="OpenFolderLocation_CanExecute"
+                        Executed="OpenFolderLocation_Executed"/>
+    </UserControl.CommandBindings>
+    
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -41,13 +68,12 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="{Binding InstalledVersion,StringFormat= \{0\} version number}"
+                <TextBlock Text="{Binding PreferredSoftware,StringFormat= \{0\} version number}"
                            x:Name="versionNumberHeader"
                            Style="{StaticResource Card_Header_TextBlock}"
                            Grid.Row="0"
                            Grid.ColumnSpan="2"/>
-                <Label x:Name="softwareVersionNumber" 
-                       Content="0.00.000" 
+                <Label Content="{Binding InstalledVersionNumber}" 
                        Style="{StaticResource Card_Header}"
                        VerticalAlignment="Center"
                        Grid.Row="1" 
@@ -56,15 +82,15 @@
                         Grid.Column="0" 
                         Grid.Row="2" >
                     <Button.Content>
-                        <TextBlock Text="{Binding InstalledVersion, StringFormat='Update {0}'}"/>
+                        <TextBlock Text="{Binding PreferredSoftware, StringFormat='Update {0}'}"/>
                     </Button.Content>
                 </Button>
                 <Button Style="{StaticResource Button_Secondary}" 
                         Grid.Column="1" 
                         Grid.Row="2"
-                        Click="bttn_Open_Software_Click">
+                        Command="{StaticResource OpenSoftware}">
                     <Button.Content>
-                        <TextBlock Text="{Binding InstalledVersion, StringFormat='Open {0}'}"/>
+                        <TextBlock Text="{Binding PreferredSoftware, StringFormat='Open {0}'}"/>
                     </Button.Content>
                 </Button>
             </Grid>
@@ -83,8 +109,7 @@
                 <Label Content="Windows Build Number" 
                        Style="{StaticResource Card_Header}"
                        Grid.ColumnSpan="2"/>
-                <Label x:Name="windowsVersionNumber" 
-                       Content="0.00.000" 
+                <Label Content="{Binding WindowsVersion}" 
                        Style="{StaticResource Card_Header}"
                        VerticalAlignment="Center"
                        Grid.Row="1" 
@@ -92,7 +117,8 @@
                 <Button Style="{StaticResource Button_Primary}"
                         Grid.Column="0"
                         Grid.Row="2"
-                        Content="Check for updates"/>
+                        Content="Check for updates"
+                        Command="{StaticResource UpdateSoftware}"/>
             </Grid>
 
             <v:CardTemplate Grid.Column="0" Grid.Row="2"/>
@@ -107,21 +133,19 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="{Binding InstalledVersion,StringFormat= '\{0\} File Path'}"
+                <TextBlock Text="{Binding PreferredSoftware,StringFormat= '\{0\} File Path'}"
                            Style="{StaticResource Card_Header_TextBlock}"
                            Grid.Row="0"
                            Grid.ColumnSpan="2"/>
-                <TextBlock x:Name="filePath" 
-                           Style="{StaticResource FilePath}"
+                <TextBlock Style="{StaticResource FilePath}"
                            Grid.Row="1"
                            Grid.ColumnSpan="2"
-                           Text="Unable to find file path. Please click find."/>
-                <Button x:Name="bttn_Open" 
-                        Style="{StaticResource Button_Secondary}"
+                           Text="{Binding FilePath}"/>
+                <Button Style="{StaticResource Button_Secondary}"
                         Grid.Column="1"
                         Grid.Row="2" 
                         Content="Open"
-                        Click="bttn_Open_Click"/>
+                        Command="{StaticResource OpenFolderLocation}"/>
             </Grid>
             
             <v:CardTemplate Grid.Column="1" Grid.Row="2"/>
@@ -138,15 +162,15 @@
                 <Label Content="Repair type" 
                        Style="{StaticResource Card_Header}"
                        Grid.ColumnSpan="2"/>
-                <TextBlock x:Name="repairText" Text="{Binding InstalledVersion}"
+                <TextBlock Text="{Binding InstalledVersion}"
                            Style="{StaticResource Card_Header_TextBlock}"
                            Grid.Row="1"/>
                 <Button Style="{StaticResource Button_Primary}" 
                         Grid.Column="0" 
-                        Grid.Row="2" 
-                        Click="ChangeSoftwareType_Click">
+                        Grid.Row="2"
+                        Command="{StaticResource SwitchPreferredSoftware}">
                     <Button.Content>
-                        <TextBlock Text="{Binding OtherVersion, StringFormat='Switch to {0}'}"/>
+                        <TextBlock Text="{Binding OtherSoftware, StringFormat='Switch to {0}'}"/>
                     </Button.Content>
                 </Button>
             </Grid>
