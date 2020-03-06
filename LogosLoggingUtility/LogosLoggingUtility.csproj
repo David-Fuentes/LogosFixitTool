@@ -102,24 +102,31 @@
     </ApplicationDefinition>
     <Compile Include="Model\Helpers\InstallVersionHelper.cs" />
     <Compile Include="Model\Helpers\RegistryHelper.cs" />
-    <Compile Include="Model\INPCBase.cs" />
+    <Compile Include="Model\LoggingModel.cs" />
+    <Compile Include="Model\MainWindowModel.cs" />
+    <Compile Include="Model\RepairModel.cs" />
+    <Compile Include="Model\ViewModel.cs" />
     <Compile Include="Model\SupportInfoModel.cs" />
-    <Compile Include="Viewmodels\LoggingTab.cs" />
-    <Compile Include="Viewmodels\RemoteTab.cs" />
-    <Compile Include="Viewmodels\RepairTab.cs" />
-    <Compile Include="Viewmodels\SupportViewModel.cs" />
+    <Compile Include="ViewModels\LoggingTab.cs" />
+    <Compile Include="ViewModels\LoggingViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\RemoteTab.cs" />
+    <Compile Include="ViewModels\RepairViewModel.cs" />
+    <Compile Include="ViewModels\SupportViewModel.cs" />
     <Compile Include="View\CardTemplate.xaml.cs">
       <DependentUpon>CardTemplate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Viewmodels\TechToolsTab.cs" />
+    <Compile Include="ViewModels\TechToolsTab.cs" />
     <Compile Include="Model\Helpers\LoggingEventHelper.cs" />
     <Compile Include="Model\Helpers\FilePathHelper.cs" />
     <Compile Include="Model\Helpers\CommandHelper.cs" />
     <Compile Include="Model\Helpers\ProcessHelper.cs" />
-    <Compile Include="Model\Helpers\TabManager.cs" />
     <Compile Include="Model\Helpers\TextColorHelper.cs" />
-    <Compile Include="View\FilePathDisplay.xaml.cs">
-      <DependentUpon>FilePathDisplay.xaml</DependentUpon>
+    <Compile Include="View\Tabs\LoggingView.xaml.cs">
+      <DependentUpon>LoggingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Tabs\RepairView.xaml.cs">
+      <DependentUpon>RepairView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Tabs\SupportView.xaml.cs">
       <DependentUpon>SupportView.xaml</DependentUpon>
@@ -152,7 +159,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\FilePathDisplay.xaml">
+    <Page Include="View\Tabs\LoggingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Tabs\RepairView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

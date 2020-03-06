@@ -1,6 +1,4 @@
-﻿using LogosLoggingUtility.Controllers;
-using LogosLoggingUtility.Model.Helpers;
-using System.Windows;
+﻿using LogosLoggingUtility.Viewmodels;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -16,7 +14,6 @@ namespace LogosLoggingUtility.View.Tabs
             m_supportViewModel = new SupportViewModel();
             DataContext = m_supportViewModel;
             InitializeComponent();
-
         }
 
         private void SwitchSoftware_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -64,6 +61,6 @@ namespace LogosLoggingUtility.View.Tabs
             m_supportViewModel.OpenFolder();
         }
 
-        readonly SupportViewModel m_supportViewModel;
+        public readonly SupportViewModel m_supportViewModel;
     }
 }

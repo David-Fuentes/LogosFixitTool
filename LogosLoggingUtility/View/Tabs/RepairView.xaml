@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="LogosLoggingUtility.View.Tabs.RepairView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LogosLoggingUtility.View.Tabs"
+             xmlns:v="clr-namespace:LogosLoggingUtility.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="740">
+    <UserControl.Resources>
+        <RoutedCommand x:Key="RepairInstallation"/>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{StaticResource RepairInstallation}"
+                        CanExecute="RepairInstallation_CanExecute"
+                        Executed="RepairInstallation_Executed"/>
+    </UserControl.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <v:CardTemplate/>
+        <Grid Grid.ColumnSpan="2" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Repair Info" Style="{StaticResource Card_Header}"/>
+            <TextBlock Grid.Row="1" Style="{StaticResource Tab_Details}" Text="Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is justice. Six draw you him full not mean evil. Prepare garrets it expense windows shewing do an. She projection advantages resolution son indulgence. Part sure on no long life am at ever. In songs above he as drawn to. Gay was outlived peculiar rendered led six. "/>
+        </Grid>
+
+        <v:CardTemplate Grid.Row="1" Margin="0 100"/>
+        <Grid Grid.Row="1" Margin="0 100">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Style="{StaticResource Tab_Details}" 
+                       Padding="10"
+                       Text="Remember outweigh do he desirous no cheerful. Do of doors water ye guest. We if prosperous comparison middletons at. Park we in lose like at no. An so to preferred convinced distrusts  Do of doors water ye guest. We if prospe "/>
+            <Button Grid.Column ="1" 
+                    Style="{StaticResource Button_Primary}" 
+                    Content="Repair Installation"
+                    Margin="75"
+                    FontSize="26"
+                    Command="{StaticResource RepairInstallation}"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

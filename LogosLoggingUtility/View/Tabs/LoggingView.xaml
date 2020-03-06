@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="LogosLoggingUtility.View.Tabs.LoggingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LogosLoggingUtility.View.Tabs"
+             xmlns:v="clr-namespace:LogosLoggingUtility.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="740">
+
+    <UserControl.Resources>
+        <RoutedCommand x:Key="EnableLogging"/>
+        <RoutedCommand x:Key="DisableLogging"/>
+        <RoutedCommand x:Key="ArchiveLogs"/>
+        <RoutedCommand x:Key="ChangeExportPath"/>
+    </UserControl.Resources>
+
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{StaticResource EnableLogging}"
+                        CanExecute="EnableLogging_CanExecute"
+                        Executed="EnableLogging_Executed"/>
+        <CommandBinding Command="{StaticResource DisableLogging}"
+                        CanExecute="DisableLogging_CanExecute"
+                        Executed="DisableLogging_Executed"/>
+        <CommandBinding Command="{StaticResource ArchiveLogs}"
+                        CanExecute="ArchiveLogs_CanExecute"
+                        Executed="ArchiveLogs_Executed"/>
+        <CommandBinding Command="{StaticResource ChangeExportPath}"
+                        CanExecute="ChangeExportPath_CanExecute"
+                        Executed="ChangeExportPath_Executed"/>
+    </UserControl.CommandBindings>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <v:CardTemplate/>
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Enabling and Disabling Logging" Style="{StaticResource Card_Header}"/>
+            <TextBlock Grid.Row="1" Style="{StaticResource Tab_Details}" Text="Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is justice. Six draw you him full not mean evil. Prepare garrets it expense windows shewing do an. She projection advantages resolution son indulgence. Part sure on no long life am at ever. In songs above he as drawn to. Gay was outlived peculiar rendered led six. "/>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <v:CardTemplate/>
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding LoggingStatus, StringFormat='Logging is currently {0}'}"
+                           Style="{StaticResource Card_Header_TextBlock}"
+                           Grid.ColumnSpan="2"/>
+                <Button Grid.Row="1"
+                        Margin="15 50 15 15"
+                        Style="{StaticResource Button_Primary}" 
+                        Content="Enable"
+                        Command="{StaticResource EnableLogging}"/>
+                <Button Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="15 50 15 15"
+                        Style="{StaticResource Button_Secondary}"
+                        Command="{StaticResource DisableLogging}"
+                        Content="Disable"/>
+            </Grid>
+
+            <v:CardTemplate Grid.ColumnSpan="2" Grid.Row="1"/>
+            <Grid Grid.Row="1" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Archive Logs" 
+                       Style="{StaticResource Card_Header}"
+                       Grid.ColumnSpan="2"/>
+                <TextBlock Text="{Binding ExportPath, StringFormat='Exporting to: {0}'}"
+                           Style="{StaticResource Tab_Details}"
+                           Grid.Row="1"
+                           Grid.ColumnSpan="2"/>
+                <Button Style="{StaticResource Button_Primary}"
+                        Command="{StaticResource ArchiveLogs}"
+                        Content="Archive"
+                        Grid.Row="2"/>
+                <Button Style="{StaticResource Button_Secondary}"
+                        Command="{StaticResource ChangeExportPath}"
+                        Content="Change"
+                        Grid.Row="2"
+                        Grid.Column="1"/>
+            </Grid>
+            
+        </Grid>
+    </Grid>
+</UserControl>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LogosLoggingUtility.Model
 {
-    public class SupportInfoModel
+    public class SupportModel
     {
         public string WindowsVersion { get { return Environment.OSVersion.Version.Build.ToString(); } }
         public string LogosVersion { get { return RegistryHelper.GetInstallVersions().logosVersion; } } 

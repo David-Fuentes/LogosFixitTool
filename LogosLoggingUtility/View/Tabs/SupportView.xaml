@@ -162,7 +162,7 @@
                 <Label Content="Repair type" 
                        Style="{StaticResource Card_Header}"
                        Grid.ColumnSpan="2"/>
-                <TextBlock Text="{Binding InstalledVersion}"
+                <TextBlock Text="{Binding PreferredSoftware}"
                            Style="{StaticResource Card_Header_TextBlock}"
                            Grid.Row="1"/>
                 <Button Style="{StaticResource Button_Primary}" 

@@ -1,24 +1,20 @@
 ﻿using LogosLoggingUtility.Model;
 using LogosLoggingUtility.Model.Helpers;
-using Microsoft.Win32;
 using System;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Windows;
-using System.Windows.Forms;
 using WUApiLib;
 using MessageBox = System.Windows.Forms.MessageBox;
 
-namespace LogosLoggingUtility.Controllers
+namespace LogosLoggingUtility.Viewmodels
 {
-    public class SupportViewModel : INPCBase
+    public class SupportViewModel : ViewModel
     {
 
         public SupportViewModel()
         {
-            m_supportModel = new SupportInfoModel();
-            PreferredSoftware = SupportInfoModel.c_Logos;
-            OtherSoftware = SupportInfoModel.c_Verbum;
+            m_supportModel = new SupportModel();
+            PreferredSoftware = SupportModel.c_Logos;
+            OtherSoftware = SupportModel.c_Verbum;
             InstalledVersionNumber = m_supportModel.LogosVersion ?? "No version detected.";
             FilePath = m_supportModel.LogosInstallPath ?? "Unable to find file path.";
             WindowsVersion = m_supportModel.WindowsVersion;
@@ -54,7 +50,10 @@ namespace LogosLoggingUtility.Controllers
                 {
                     Console.WriteLine(update.Title);
                 }
-                MessageBox.Show("Updates were found! Please install them now.");
+                if (sResult.Updates.Count > 0)
+                    MessageBox.Show("Updates were found! Please install them now.");
+                else
+                    MessageBox.Show("No updates were found!");
             }
             catch (Exception ex)
             {
@@ -69,10 +68,10 @@ namespace LogosLoggingUtility.Controllers
 
         internal void ChangePreferredSoftware()
         {
-            var isUpdatingToLogos = PreferredSoftware == SupportInfoModel.c_Verbum;
+            var isUpdatingToLogos = PreferredSoftware == SupportModel.c_Verbum;
 
-            PreferredSoftware = isUpdatingToLogos ? SupportInfoModel.c_Logos : SupportInfoModel.c_Verbum;
-            OtherSoftware = isUpdatingToLogos ? SupportInfoModel.c_Verbum : SupportInfoModel.c_Logos;
+            PreferredSoftware = isUpdatingToLogos ? SupportModel.c_Logos : SupportModel.c_Verbum;
+            OtherSoftware = isUpdatingToLogos ? SupportModel.c_Verbum : SupportModel.c_Logos;
             InstalledVersionNumber = isUpdatingToLogos ?
                 m_supportModel.LogosVersion ?? c_noVersion :
                 m_supportModel.VerbumVersion ?? c_noVersion;
@@ -91,7 +90,7 @@ namespace LogosLoggingUtility.Controllers
 
         internal void OpenFolder()
         {
-            var isLogos = PreferredSoftware == SupportInfoModel.c_Logos;
+            var isLogos = PreferredSoftware == SupportModel.c_Logos;
             FilePathHelper.OpenFileExplorerToPath(isLogos ? m_supportModel.LogosInstallPath : m_supportModel.VerbumInstallPath);
         }
 
@@ -161,7 +160,7 @@ namespace LogosLoggingUtility.Controllers
 
 
         //References
-        private readonly SupportInfoModel m_supportModel;
+        private readonly SupportModel m_supportModel;
         private const string c_noVersion = "No version detected.";
         private const string c_noFilePath = "Update to detect file path.";
     }

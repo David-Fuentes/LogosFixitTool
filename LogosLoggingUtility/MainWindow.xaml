@@ -3,9 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LogosLoggingUtility"
-        xmlns:v="clr-namespace:LogosLoggingUtility.View"
-        xmlns:t="clr-namespace:LogosLoggingUtility.View.Tabs"
         mc:Ignorable="d"
         Title="Logos Logging Utility" Height="650" Width="900">
     <Grid>
@@ -13,11 +10,9 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="250"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="160"/>
-                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -33,83 +28,24 @@
 
             <ListBox x:Name="Tabs" 
                      Grid.Row="1" 
-                     Grid.RowSpan="2" 
                      Background="Transparent" 
                      BorderBrush="Transparent" 
                      BorderThickness="0" 
-                     HorizontalContentAlignment="Center">
-                
-                <ListBoxItem IsSelected="True" Foreground="White">
-                    <Label Foreground="White" Content="Support Info" FontSize="16"/>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <Label Foreground="White" Content="Repair Install" FontSize="16"/>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <Label Foreground="White" Content="Missing Resources" FontSize="16"/>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <Label Foreground="White" Content="Logging" FontSize="16"/>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <Label Foreground="White" Content="Tech Tools" FontSize="16"/>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <Label Foreground="White" Content="Firewall" FontSize="16"/>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <Label Foreground="White" Content="Permissions" FontSize="16"/>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <Label Foreground="White" Content="Repair .NET" FontSize="16"/>
-                </ListBoxItem>
-                <ListBoxItem>
-                    <Label Foreground="White" Content="Remote Connect" FontSize="16" />
-                </ListBoxItem>
+                     HorizontalContentAlignment="Center"
+                     SelectionChanged="Tabs_SelectionChanged"
+                     ItemsSource="{Binding Tabs}">
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Foreground="White" Content="{Binding}" FontSize="16"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
 
-            <Grid Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Grid_Support">
-                <t:SupportView/>
+            <Grid Grid.Column="1"
+                  Grid.RowSpan="2">
+                <ContentControl Content="{Binding ActiveControl}"/>
             </Grid>
-
-            <Grid Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Grid_Repair" Visibility="Collapsed">
-                <Label Content="Repair Tab"/>
-            </Grid>
-
-            <Grid Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Grid_Resources" Visibility="Collapsed">
-                <Label Content="Missing resources tab"/>
-            </Grid>
-
-            <Grid Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Grid_Logging" Visibility="Collapsed">
-                <Label Content="Logging tab"/>
-
-            </Grid>
-
-            <Grid Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Grid_TechTools" Visibility="Collapsed">
-                <Label Content="Tech Tools tab"/>
-
-            </Grid>
-
-            <Grid Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Grid_Firewall" Visibility="Collapsed">
-                <Label Content="Firewall Help tab"/>
-
-            </Grid>
-
-            <Grid Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Grid_Permissions" Visibility="Collapsed">
-                <Label Content="Permissions tab"/>
-
-            </Grid>
-
-            <Grid Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Grid_NET" Visibility="Collapsed">
-                <Label Content="Repair .Net tab"/>
-
-            </Grid>
-
-            <Grid Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="Grid_Remote" Visibility="Collapsed">
-                <Label Content="Remote tab"/>
-
-            </Grid>
-
         </Grid>
     </Grid>
 
