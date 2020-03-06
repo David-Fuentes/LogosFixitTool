@@ -216,28 +216,10 @@
     <Resource Include="Images\LogosIconAlpha.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\DefaultIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\IconFolder.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Logos Fixit Tool Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\IconTeamviewer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\IconHeaderLog.png" />
-    <Resource Include="Images\IconHeaderRemote.png" />
-    <Resource Include="Images\IconHeaderRepair.png" />
-    <Resource Include="Images\IconHeaderTech.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\IconHeaderSupport.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\IconInfo.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -264,6 +246,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\VerbumIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

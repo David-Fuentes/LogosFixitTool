@@ -13,6 +13,7 @@ namespace LogosLoggingUtility.ViewModels
         {
             m_supportModel = new SupportModel();
             PreferredSoftware = SupportModel.c_Logos;
+            Icon = "/Images/LogosIconAlpha.png";
             OtherSoftware = SupportModel.c_Verbum;
             InstalledVersionNumber = m_supportModel.LogosVersion ?? "No version detected.";
             FilePath = m_supportModel.LogosInstallPath ?? "Unable to find file path.";
@@ -70,6 +71,7 @@ namespace LogosLoggingUtility.ViewModels
             var isUpdatingToLogos = PreferredSoftware == SupportModel.c_Verbum;
 
             PreferredSoftware = isUpdatingToLogos ? SupportModel.c_Logos : SupportModel.c_Verbum;
+            Icon = isUpdatingToLogos ? "/Images/LogosIconAlpha.png" : "/Images/VerbumIcon.png";
             OtherSoftware = isUpdatingToLogos ? SupportModel.c_Verbum : SupportModel.c_Logos;
             InstalledVersionNumber = isUpdatingToLogos ?
                 m_supportModel.LogosVersion ?? c_noVersion :
@@ -119,7 +121,7 @@ namespace LogosLoggingUtility.ViewModels
         public string PreferredSoftware
         {
             get { return m_preferredSoftware; }
-            set { m_preferredSoftware = value; OnPropertyChanged("PreferredSoftware"); }
+            set { m_preferredSoftware = value; OnPropertyChanged("PreferredSoftware"); OnPropertyChanged("Icon"); }
         }
 
         private string m_otherSoftware = "Verbum";
@@ -156,6 +158,15 @@ namespace LogosLoggingUtility.ViewModels
             get { return m_softwareFound; }
             set { m_softwareFound = value; OnPropertyChanged("SoftwareFound"); }
         }
+
+        private string m_Icon;
+
+        public string Icon
+        {
+            get { return m_Icon; }
+            set { m_Icon = value; OnPropertyChanged("Icon"); }
+        }
+
 
 
         //References

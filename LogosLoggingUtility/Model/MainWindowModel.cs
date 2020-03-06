@@ -1,4 +1,5 @@
-﻿using LogosLoggingUtility.View.Tabs;
+﻿using LogosLoggingUtility.Model.Helpers;
+using LogosLoggingUtility.View.Tabs;
 using System.Collections.Generic;
 using System.Windows.Controls;
 

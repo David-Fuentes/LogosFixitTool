@@ -19,25 +19,18 @@ namespace LogosLoggingUtility.ViewModels
 
         internal void ArchiveLogs()
         {
-            try
-            {
-                var timeStamp = DateTime.Now.ToString("yyyy''MM''dd'-'HH''mm''ss");
-                Directory.CreateDirectory(ExportPath);
+            var timeStamp = DateTime.Now.ToString("MMM'_'dd'_'yyyy'-'hh'_'mm'_'ss'_'tt");
+            Directory.CreateDirectory(ExportPath);
 
-                var zipPath = ExportPath+ $@"\Logs-{timeStamp}.zip";
-                ZipFile.CreateFromDirectory(FilePathHelper.faithlifeDefaultFilePath, zipPath);
+            var zipPath = ExportPath+ $@"\Logs-{timeStamp}.zip";
+            ZipFile.CreateFromDirectory(FilePathHelper.faithlifeDefaultFilePath, zipPath);
 
-                ProcessStartInfo startInfo = new ProcessStartInfo
-                {
-                    Arguments = ExportPath,
-                    FileName = "explorer.exe"
-                };
-                Process.Start(startInfo);
-            }
-            catch (Exception e)
+            ProcessStartInfo startInfo = new ProcessStartInfo
             {
-                MessageBox.Show($"ERROR: Unable to archive logs.\n\n {e}");
-            }
+                Arguments = ExportPath,
+                FileName = "explorer.exe"
+            };
+            Process.Start(startInfo);
         }
 
         internal void EnableLogging()

@@ -1,4 +1,5 @@
 ﻿using LogosLoggingUtility.Model;
+using LogosLoggingUtility.Model.Helpers;
 using LogosLoggingUtility.View.Tabs;
 using System.Collections.Generic;
 using System.Windows.Controls;
@@ -10,6 +11,7 @@ namespace LogosLoggingUtility.ViewModels
         public MainWindowViewModel()
         {
             var supportView = new SupportView();
+            SupportDataContext = supportView.m_supportViewModel;
             var loggingView = new LoggingView();
             m_mainWindowModel = new MainWindowModel(supportView, loggingView);
             ActiveControl = m_mainWindowModel.TabControls[0];
@@ -35,8 +37,13 @@ namespace LogosLoggingUtility.ViewModels
             set { m_tabs = value; OnPropertyChanged("Tabs"); }
         }
 
-        private readonly MainWindowModel m_mainWindowModel;
+        private object m_supportDataContext;
+        public object SupportDataContext
+        {
+            get { return m_supportDataContext; }
+            set { m_supportDataContext = value; OnPropertyChanged("SupportDataContext"); }
+        }
 
-        
+        private readonly MainWindowModel m_mainWindowModel;
     }
 }

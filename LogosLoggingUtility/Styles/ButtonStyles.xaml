@@ -3,7 +3,7 @@
 
     <Color x:Key="BackgroundColor" A="255" R="0" G="94" B="196"/>
     <Color x:Key="BackgroundColorHover" A="255" R="25" G="119" B="222"/>
-    <Color x:Key="BackgroundColorDisabled" A="255" R="85" G="85" B="85"/>
+    <Color x:Key="BackgroundColorDisabled" A="255" R="204" G="204" B="204"/>
 
     <SolidColorBrush x:Key="LogosBlue" Color="{StaticResource BackgroundColor}"/>
     <SolidColorBrush x:Key="LogosBlueOver" Color="{StaticResource BackgroundColorHover}"/>
@@ -11,6 +11,7 @@
 
     <Style x:Key="Button_Primary" TargetType="{x:Type ButtonBase}">
         <Setter Property="Margin" Value="5"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Background" Value="{StaticResource LogosBlue}" />
@@ -41,8 +42,12 @@
                 <Setter Property="BorderBrush" Value="{StaticResource LogosBlueOver}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="{StaticResource Disabled}" />
-                <Setter Property="BorderBrush" Value="{StaticResource Disabled}"/>
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Background" Value="{StaticResource Disabled}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource LogosBlue}"/>
+                <Setter Property="Foreground" Value="White" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -50,6 +55,7 @@
     <Style x:Key="Button_Secondary" TargetType="{x:Type ButtonBase}">
         <Setter Property="Margin" Value="5"/>
         <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Foreground" Value="{StaticResource LogosBlue}" />
         <Setter Property="Background" Value="White" />
         <Setter Property="BorderBrush" Value="{StaticResource LogosBlue}" />
@@ -75,12 +81,16 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource LogosBlue}" />
+                <Setter Property="Background" Value="{StaticResource LogosBlueOver}" />
                 <Setter Property="Foreground" Value="White" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="{StaticResource Disabled}" />
-                <Setter Property="BorderBrush" Value="{StaticResource Disabled}"/>
+                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Background" Value="{StaticResource Disabled}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource LogosBlue}"/>
+                <Setter Property="Foreground" Value="White" />
             </Trigger>
         </Style.Triggers>
     </Style>

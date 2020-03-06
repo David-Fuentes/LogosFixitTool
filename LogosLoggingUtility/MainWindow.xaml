@@ -17,8 +17,12 @@
             </Grid.ColumnDefinitions>
 
             <Border Background="{StaticResource LogosBlue}" Grid.RowSpan="3"/>
-            <Image Source="Images/LogosIconAlpha.png"/>
-
+            <Border CornerRadius="8">
+                <Image Source="{Binding Icon}" 
+                   DataContext="{Binding SupportDataContext}"
+                   Margin="10"/>
+            </Border>
+            
             <Border Background="#f4f4f4" 
                     Grid.Column="1" 
                     Grid.ColumnSpan="2"

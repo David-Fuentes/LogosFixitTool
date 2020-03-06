@@ -87,8 +87,16 @@ namespace LogosLoggingUtility.ViewModels
             }
             else
             {
-                ZipFile.ExtractToDirectory(m_techToolsModel.ProcdumpPath, m_supportViewModel.FilePath);
-                StartProcdumpCmd(false);
+                try
+                {
+                    ZipFile.ExtractToDirectory(m_techToolsModel.ProcdumpPath, m_supportViewModel.FilePath);
+                    StartProcdumpCmd(false);
+                }
+                catch (IOException exception)
+                {
+                    GetProcdump();
+                }
+                
             }
         }
 
@@ -114,6 +122,10 @@ namespace LogosLoggingUtility.ViewModels
                     StartProcdumpCmd(true);
                 }
             }
+            else
+            {
+                FilePathHelper.OpenFileExplorerToPath(m_supportViewModel.FilePath);
+            }
         }
 
         private string OpenCommandPromptWithCommand(string commandArg)
@@ -125,7 +137,7 @@ namespace LogosLoggingUtility.ViewModels
                 FileName = m_techToolsModel.CmdPath,
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
-                CreateNoWindow = false
+                CreateNoWindow = true
             };
 
             process.StartInfo = startInfo;
