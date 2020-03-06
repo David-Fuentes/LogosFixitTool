@@ -1,5 +1,5 @@
 ﻿using LogosLoggingUtility.Model;
-using LogosLoggingUtility.Viewmodels;
+using LogosLoggingUtility.ViewModels;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -9,7 +9,6 @@ namespace LogosLoggingUtility.ViewModels
 {
     public class RepairViewModel : ViewModel
     {
-
         public RepairViewModel(SupportViewModel supportInfoViewModel)
         {
             m_supportInfoViewModel = supportInfoViewModel;

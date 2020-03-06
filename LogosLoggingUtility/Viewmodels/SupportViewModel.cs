@@ -5,7 +5,7 @@ using System.Diagnostics;
 using WUApiLib;
 using MessageBox = System.Windows.Forms.MessageBox;
 
-namespace LogosLoggingUtility.Viewmodels
+namespace LogosLoggingUtility.ViewModels
 {
     public class SupportViewModel : ViewModel
     {

@@ -3,14 +3,15 @@ using LogosLoggingUtility.View.Tabs;
 using System.Collections.Generic;
 using System.Windows.Controls;
 
-namespace LogosLoggingUtility.Viewmodels
+namespace LogosLoggingUtility.ViewModels
 {
     public class MainWindowViewModel : ViewModel
     {
         public MainWindowViewModel()
         {
             var supportView = new SupportView();
-            m_mainWindowModel = new MainWindowModel(supportView);
+            var loggingView = new LoggingView();
+            m_mainWindowModel = new MainWindowModel(supportView, loggingView);
             ActiveControl = m_mainWindowModel.TabControls[0];
             Tabs = m_mainWindowModel.TabHeaders;
         }

@@ -10,13 +10,15 @@ namespace LogosLoggingUtility.Model
 {
     public class MainWindowModel
     {
-        public MainWindowModel(SupportView supportView)
+        public MainWindowModel(SupportView supportView, LoggingView loggingView)
         {
             TabControls = new List<UserControl>
             {
                 supportView,
                 new RepairView(supportView),
-                new LoggingView()
+                loggingView,
+                new TechToolsView(supportView.m_supportViewModel, loggingView.m_loggingViewModel),
+                new RemoteView(loggingView)
             };
         }
 
@@ -26,9 +28,6 @@ namespace LogosLoggingUtility.Model
             "Repair Install",
             "Logging",
             "Tech Tools",
-            "Firewall",
-            "Permissions",
-            "Repair .NET",
             "Remote Connect"
         };
 

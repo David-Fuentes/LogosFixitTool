@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="LogosLoggingUtility.View.Tabs.TechToolsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LogosLoggingUtility.View.Tabs"
+             xmlns:v="clr-namespace:LogosLoggingUtility.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="740">
+
+    <UserControl.Resources>
+        <RoutedCommand x:Key="StartEventViewer"/>
+        <RoutedCommand x:Key="GetProcdump"/>
+        <RoutedCommand x:Key="ResetBits"/>
+    </UserControl.Resources>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{StaticResource StartEventViewer}"
+                        CanExecute="StartEventViewer_CanExecute"
+                        Executed="StartEventViewer_Executed"/>
+        <CommandBinding Command="{StaticResource GetProcdump}"
+                        CanExecute="GetProcdump_CanExecute"
+                        Executed="GetProcdump_Executed"/>
+        <CommandBinding Command="{StaticResource ResetBits}"
+                        CanExecute="ResetBits_CanExecute"
+                        Executed="ResetBits_Executed"/>
+    </UserControl.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <v:CardTemplate Grid.ColumnSpan="2"/>
+        <Grid Grid.ColumnSpan="2" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Tech Tools" Style="{StaticResource Card_Header}"/>
+            <TextBlock Grid.Row="1" Style="{StaticResource Tab_Details}" Text="Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is justice. Six draw you him full not mean evil. Prepare garrets it expense windows shewing do an. She projection advantages resolution son indulgence. Part sure on no long life am at ever. In songs above he as drawn to. Gay was outlived peculiar rendered led six. "/>
+        </Grid>
+        
+        <v:CardTemplate Grid.Row="1" Grid.Column="0"/>
+        <Grid Grid.Row="1" Grid.Column="0" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Event Viewer" Style="{StaticResource Card_Header}"/>
+            <Button Style="{StaticResource Button_Primary}"
+                    Grid.Row="2"
+                    Content="Start Event Viewer"
+                    Command="{StaticResource StartEventViewer}"/>
+        </Grid>
+        <v:CardTemplate Grid.Row="1" Grid.Column="1"/>
+        <Grid Grid.Row="1" Grid.Column="1" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Procdump" Style="{StaticResource Card_Header}"/>
+            <Button Style="{StaticResource Button_Primary}"
+                    Grid.Row="2"
+                    Content="Get Procdump"
+                    Command="{StaticResource GetProcdump}"/>
+        </Grid>
+
+        <v:CardTemplate Grid.Row="2" Grid.Column="1"/>
+        <Grid Grid.Row="2" Grid.Column="1" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Bits Troubleshooting" Style="{StaticResource Card_Header}"/>
+            <Button Style="{StaticResource Button_Primary}"
+                    Grid.Row="2"
+                    Content="Reset Jobs"
+                    Command="{StaticResource ResetBits}"/>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,4 +1,4 @@
-﻿using LogosLoggingUtility.Viewmodels;
+﻿using LogosLoggingUtility.ViewModels;
 using System.Windows.Controls;
 using System.Windows.Input;
 

@@ -17,25 +17,26 @@ using System.Windows.Shapes;
 namespace LogosLoggingUtility.View.Tabs
 {
     /// <summary>
-    /// Interaction logic for RepairView.xaml
+    /// Interaction logic for RemoteView.xaml
     /// </summary>
-    public partial class RepairView : UserControl
+    public partial class RemoteView : UserControl
     {
-        public RepairView(SupportView supportView)
+        public RemoteView(LoggingView loggingView)
         {
-            m_repairViewModel = new RepairViewModel(supportView.m_supportViewModel);
+            m_RemoteViewModel = new RemoteViewModel(loggingView.m_loggingViewModel);
             InitializeComponent();
         }
 
-        private void RepairInstallation_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        private void Connect_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = m_repairViewModel.CanFindRepairFile();
-        }
-        private void RepairInstallation_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            m_repairViewModel.RepairInstallation();
+            e.CanExecute = true;
         }
 
-        private readonly RepairViewModel m_repairViewModel;
+        private void Connect_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            m_RemoteViewModel.DownloadTeamviewer();
+        }
+
+        private RemoteViewModel m_RemoteViewModel;
     }
 }

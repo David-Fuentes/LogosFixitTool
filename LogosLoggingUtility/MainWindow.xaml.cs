@@ -1,5 +1,5 @@
 ﻿using LogosLoggingUtility.Model.Helpers;
-using LogosLoggingUtility.Viewmodels;
+using LogosLoggingUtility.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

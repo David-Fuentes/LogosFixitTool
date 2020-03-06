@@ -104,19 +104,20 @@
     <Compile Include="Model\Helpers\RegistryHelper.cs" />
     <Compile Include="Model\LoggingModel.cs" />
     <Compile Include="Model\MainWindowModel.cs" />
+    <Compile Include="Model\RemoteModel.cs" />
     <Compile Include="Model\RepairModel.cs" />
+    <Compile Include="Model\TechToolsModel.cs" />
     <Compile Include="Model\ViewModel.cs" />
     <Compile Include="Model\SupportInfoModel.cs" />
-    <Compile Include="ViewModels\LoggingTab.cs" />
     <Compile Include="ViewModels\LoggingViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\RemoteTab.cs" />
+    <Compile Include="ViewModels\RemoteViewModel.cs" />
     <Compile Include="ViewModels\RepairViewModel.cs" />
     <Compile Include="ViewModels\SupportViewModel.cs" />
+    <Compile Include="ViewModels\TechToolsViewModel.cs" />
     <Compile Include="View\CardTemplate.xaml.cs">
       <DependentUpon>CardTemplate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\TechToolsTab.cs" />
     <Compile Include="Model\Helpers\LoggingEventHelper.cs" />
     <Compile Include="Model\Helpers\FilePathHelper.cs" />
     <Compile Include="Model\Helpers\CommandHelper.cs" />
@@ -125,11 +126,17 @@
     <Compile Include="View\Tabs\LoggingView.xaml.cs">
       <DependentUpon>LoggingView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Tabs\RemoteView.xaml.cs">
+      <DependentUpon>RemoteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Tabs\RepairView.xaml.cs">
       <DependentUpon>RepairView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Tabs\SupportView.xaml.cs">
       <DependentUpon>SupportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Tabs\TechToolsView.xaml.cs">
+      <DependentUpon>TechToolsView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -163,11 +170,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Tabs\RemoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Tabs\RepairView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Tabs\SupportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Tabs\TechToolsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

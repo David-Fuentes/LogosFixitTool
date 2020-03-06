@@ -28,7 +28,7 @@ namespace LogosLoggingUtility.View.Tabs
             InitializeComponent();
         }
 
-        private LoggingViewModel m_loggingViewModel;
+        public readonly LoggingViewModel m_loggingViewModel;
 
         private void EnableLogging_CanExecute(object sender, CanExecuteRoutedEventArgs e) {e.CanExecute = true;}
         private void EnableLogging_Executed(object sender, ExecutedRoutedEventArgs e) {m_loggingViewModel.EnableLogging();}

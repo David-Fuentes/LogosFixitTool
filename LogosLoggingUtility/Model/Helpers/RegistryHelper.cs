@@ -30,8 +30,8 @@ namespace LogosLoggingUtility.Model.Helpers
         {
             var logosKey = Registry.CurrentUser.OpenSubKey(m_logosRegistryPath);
             var verbumKey = Registry.CurrentUser.OpenSubKey(m_verbumRegistryPath);
-            var logosValue = logosKey != null ? logosKey.GetValue(key).ToString() : null;
-            var verbumValue = verbumKey != null ? verbumKey.GetValue(key).ToString() : null;
+            var logosValue = logosKey?.GetValue(key)?.ToString();
+            var verbumValue = verbumKey?.GetValue(key)?.ToString();
             return (logosValue, verbumValue);
         }
 
