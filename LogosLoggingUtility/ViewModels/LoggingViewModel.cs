@@ -1,13 +1,9 @@
 ﻿using LogosLoggingUtility.Model;
 using LogosLoggingUtility.Model.Helpers;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LogosLoggingUtility.ViewModels
@@ -17,8 +13,8 @@ namespace LogosLoggingUtility.ViewModels
         public LoggingViewModel()
         {
             m_loggingModel = new LoggingModel();
-            ExportPath = FilePathHelper.s_loggingFolderDefaultFilePath;
-            LoggingStatus = RegistryHelper.GetLoggingKeyValue() == "1" ? "Enabled" : "Disabled";
+            ExportPath = FilePathHelper.loggingFolderDefaultFilePath;
+            LoggingStatus = m_loggingModel.IsLoggingEnabled;
         }
 
         internal void ArchiveLogs()
@@ -29,8 +25,7 @@ namespace LogosLoggingUtility.ViewModels
                 Directory.CreateDirectory(ExportPath);
 
                 var zipPath = ExportPath+ $@"\Logs-{timeStamp}.zip";
-
-                ZipFile.CreateFromDirectory(FilePathHelper.s_faithlifeDefaultFilePath, zipPath);
+                ZipFile.CreateFromDirectory(FilePathHelper.faithlifeDefaultFilePath, zipPath);
 
                 ProcessStartInfo startInfo = new ProcessStartInfo
                 {

@@ -9,7 +9,6 @@ namespace LogosLoggingUtility.ViewModels
 {
     public class SupportViewModel : ViewModel
     {
-
         public SupportViewModel()
         {
             m_supportModel = new SupportModel();

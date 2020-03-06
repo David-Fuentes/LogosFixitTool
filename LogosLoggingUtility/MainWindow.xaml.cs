@@ -1,16 +1,9 @@
-﻿using LogosLoggingUtility.Model.Helpers;
-using LogosLoggingUtility.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using LogosLoggingUtility.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace LogosLoggingUtility
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -19,9 +12,7 @@ namespace LogosLoggingUtility
             DataContext = m_mainWindowViewModel;
             InitializeComponent();
             Tabs.SelectedItem = Tabs.Items[0];
-
         }
-
 
         private void Tabs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

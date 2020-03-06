@@ -1,16 +1,11 @@
 ﻿using LogosLoggingUtility.Model;
 using LogosLoggingUtility.Model.Helpers;
-using LogosLoggingUtility.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace LogosLoggingUtility.ViewModels
@@ -138,10 +133,6 @@ namespace LogosLoggingUtility.ViewModels
             return process.StandardOutput.ReadToEnd();
         }
 
-        private readonly SupportViewModel m_supportViewModel;
-        private readonly TechToolsModel m_techToolsModel;
-        private readonly LoggingViewModel m_loggingViewModel;
-
         private string m_procdumpCommand;
         public string ProcdumpCommand
         {
@@ -156,5 +147,8 @@ namespace LogosLoggingUtility.ViewModels
             set { m_procdumpCommandAlt = value; OnPropertyChanged("ProdcumpCommandAlt"); }
         }
 
+        private readonly SupportViewModel m_supportViewModel;
+        private readonly TechToolsModel m_techToolsModel;
+        private readonly LoggingViewModel m_loggingViewModel;
     }
 }

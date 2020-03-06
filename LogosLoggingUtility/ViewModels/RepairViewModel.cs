@@ -1,5 +1,4 @@
 ﻿using LogosLoggingUtility.Model;
-using LogosLoggingUtility.ViewModels;
 using System;
 using System.Diagnostics;
 using System.IO;

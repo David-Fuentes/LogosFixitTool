@@ -5,7 +5,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:v="clr-namespace:LogosLoggingUtility.View"
-             xmlns:local="clr-namespace:LogosLoggingUtility.View.Tabs"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="740">
     <UserControl.Resources>
@@ -118,7 +117,7 @@
                         Grid.Column="0"
                         Grid.Row="2"
                         Content="Check for updates"
-                        Command="{StaticResource UpdateSoftware}"/>
+                        Command="{StaticResource CheckForWindowsUpdates}"/>
             </Grid>
 
             <v:CardTemplate Grid.Column="0" Grid.Row="2"/>

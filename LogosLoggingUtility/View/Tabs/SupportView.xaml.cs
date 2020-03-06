@@ -4,9 +4,6 @@ using System.Windows.Input;
 
 namespace LogosLoggingUtility.View.Tabs
 {
-    /// <summary>
-    /// Interaction logic for Support.xaml
-    /// </summary>
     public partial class SupportView : UserControl
     {
         public SupportView()
@@ -16,50 +13,21 @@ namespace LogosLoggingUtility.View.Tabs
             InitializeComponent();
         }
 
-        private void SwitchSoftware_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = m_supportViewModel.CanSwitchSoftware();
-        }
-        private void SwitchSoftware_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            m_supportViewModel.ChangePreferredSoftware();
-        }
+        private void SwitchSoftware_CanExecute(object sender, CanExecuteRoutedEventArgs e) {e.CanExecute = m_supportViewModel.CanSwitchSoftware();}
+        private void SwitchSoftware_Executed(object sender, ExecutedRoutedEventArgs e) {m_supportViewModel.ChangePreferredSoftware();}
 
-        private void UpdateSoftware_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = m_supportViewModel.UpdatesAreAvailable();
-        }
-        private void UpdateSoftware_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            m_supportViewModel.CheckForUpdates();
-        }
+        private void OpenSoftware_CanExecute(object sender, CanExecuteRoutedEventArgs e) {e.CanExecute = m_supportViewModel.CanOpenSoftware();}
+        private void OpenSoftware_Executed(object sender, ExecutedRoutedEventArgs e) {m_supportViewModel.OpenSoftware();}
 
-        private void CheckForWindowsUpdates_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
+        private void OpenFolderLocation_CanExecute(object sender, CanExecuteRoutedEventArgs e) {e.CanExecute = m_supportViewModel.CanOpenSoftware();}
+        private void OpenFolderLocation_Executed(object sender, ExecutedRoutedEventArgs e) {m_supportViewModel.OpenFolder();}
 
-        }
-        private void CheckForWindowsUpdates_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
+        private void CheckForWindowsUpdates_CanExecute(object sender, CanExecuteRoutedEventArgs e) { e.CanExecute = m_supportViewModel.UpdatesAreAvailable(); }
+        private void CheckForWindowsUpdates_Executed(object sender, ExecutedRoutedEventArgs e) { m_supportViewModel.CheckForUpdates(); }
 
-        }
-
-        private void OpenSoftware_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = m_supportViewModel.CanOpenSoftware();
-        }
-        private void OpenSoftware_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            m_supportViewModel.OpenSoftware();
-        }
-
-        private void OpenFolderLocation_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = m_supportViewModel.CanOpenSoftware();
-        }
-        private void OpenFolderLocation_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            m_supportViewModel.OpenFolder();
-        }
+        //TODO Check to see if Logos is out of date and if so provide dl link for installer
+        private void UpdateSoftware_CanExecute(object sender, CanExecuteRoutedEventArgs e) { }
+        private void UpdateSoftware_Executed(object sender, ExecutedRoutedEventArgs e) { }
 
         public readonly SupportViewModel m_supportViewModel;
     }

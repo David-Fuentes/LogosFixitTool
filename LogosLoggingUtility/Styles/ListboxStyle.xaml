@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:LogosLoggingUtility.Styles">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Color x:Key="BackgroundColorHover" A="255" R="25" G="119" B="222"/>
 
     <Style x:Key="FocusVisual">

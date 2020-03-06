@@ -1,13 +1,9 @@
 ﻿using LogosLoggingUtility.Model;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogosLoggingUtility.ViewModels
 {
@@ -17,7 +13,6 @@ namespace LogosLoggingUtility.ViewModels
         {
             m_remoteModel = new RemoteModel(viewModel);
         }
-
 
         internal void DownloadTeamviewer()
         {
@@ -43,6 +38,5 @@ namespace LogosLoggingUtility.ViewModels
         }
 
         private readonly RemoteModel m_remoteModel;
-
     }
 }

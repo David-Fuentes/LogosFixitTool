@@ -30,7 +30,7 @@ namespace LogosLoggingUtility.Model.Helpers
             Process.Start(startInfo);
         }
 
-        public static string s_faithlifeDefaultFilePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Faithlife\Logs";
-        public static string s_loggingFolderDefaultFilePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\LogosLogs";
+        public static string faithlifeDefaultFilePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Faithlife\Logs";
+        public static string loggingFolderDefaultFilePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\LogosLogs";
     }
 }
